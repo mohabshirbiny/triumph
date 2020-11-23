@@ -149,17 +149,12 @@
                                   </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="{{ route('service-categories.index') }}" class="nav-link @if(request()->segment(2) == 'service-categories') active @endif">
-                                            <i class="nav-icon far fa-circle"></i>
-                                            <p>Services Categories</p>
-                                        </a>
-                                    </li>
+                                    
         
                                     <li class="nav-item">
                                         <a href="{{ route('services.index') }}" class="nav-link @if(request()->segment(2) == 'services') active @endif">
                                             <i class="nav-icon far fa-circle"></i>
-                                            <p>Services</p>
+                                            <p>All Services</p>
                                         </a>
                                     </li>
                                 </ul>

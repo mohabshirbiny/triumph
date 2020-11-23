@@ -6,133 +6,50 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    protected $fillable = ["service_category_id", "name", "logo",
-        "cover", "gallery", "location_url", "about", "contact_details", "social_media"];
+    protected $fillable = ["hotel_id", "title", "text", "image"];
 
-    public function service_category()
+    public function hotel()
     {
-        return $this->belongsTo(ServiceCategory::class);
+        return $this->belongsTo(Hotel::class);
     }
 
     protected $appends = [
         "title_en",
         'title_ar',
-        "about_en",
-        'about_ar',
-        'logo_path',
-        'cover_path',
-        'service_gallery',
-        "email", "website", "mobile", "phone", "whatsapp", "working_hours", "address",
-        "facebook", "twitter", "instagram", "youtube",
+        "text_en",
+        'text_ar',
+        'image_path',
     ];
 
     public function getTitleEnAttribute()
     {
-        return json_decode($this->name, true)['en'];
+        return json_decode($this->title, true)['en'];
     }
 
     public function getTitleArAttribute()
     {
-        return json_decode($this->name, true)['ar'];
+        return json_decode($this->title, true)['ar'];
     }
 
-    public function getAboutEnAttribute()
+    public function getTextEnAttribute()
     {
-        return json_decode($this->about, true)['en'];
+        return json_decode($this->text, true)['en'];
     }
 
-    public function getAboutArAttribute()
+    public function getTextArAttribute()
     {
-        return json_decode($this->about, true)['ar'];
+        return json_decode($this->text, true)['ar'];
     }
 
-    // Contact details
-    public function getEmailAttribute()
-    {
-        return json_decode($this->contact_details, true)['email'];
-    }
-    public function getWebsiteAttribute()
-    {
-        return json_decode($this->contact_details, true)['website'];
-    }
-    public function getMobileAttribute()
-    {
-        return json_decode($this->contact_details, true)['mobile'];
-    }
-    public function getPhoneAttribute()
-    {
-        return json_decode($this->contact_details, true)['phone'];
-    }
-    public function getWhatsappAttribute()
-    {
-        return json_decode($this->contact_details, true)['whatsapp'];
-    }
-    public function getWorkingHoursAttribute()
-    {
-        return json_decode($this->contact_details, true)['working_hours'];
-    }
-    public function getAddressAttribute()
-    {
-        return json_decode($this->contact_details, true)['address'];
-    }
+   
 
-    // Social Media
-    public function getFacebookAttribute()
+    public function getImagePathAttribute()
     {
-        return json_decode($this->social_media, true)['facebook'];
-    }
-    public function getTwitterAttribute()
-    {
-        return json_decode($this->social_media, true)['twitter'];
-    }
-    public function getInstagramAttribute()
-    {
-        return json_decode($this->social_media, true)['instagram'];
-    }
-    public function getYoutubeAttribute()
-    {
-        return json_decode($this->social_media, true)['youtube'];
-    }
-
-    public function getLogoPathAttribute()
-    {
-        $imageUrl = url('images/service_files/' . $this->logo);
-        $imageUrl = url('public/images/service_files/' . $this->logo);
+        $imageUrl = url('images/service_files/' . $this->image);
+        // $imageUrl = url('public/images/service_files/' . $this->cover);
         return $imageUrl;
     }
 
-    public function getCoverPathAttribute()
-    {
-        $imageUrl = url('images/service_files/' . $this->cover);
-        $imageUrl = url('public/images/service_files/' . $this->cover);
-        return $imageUrl;
-    }
-
-    public function getServiceGalleryAttribute()
-    {
-        $gallery = json_decode($this->gallery, true);
-        if (!$gallery) {
-            return (object)[];
-        }
-
-        foreach ($gallery as $type => $files) {
-            if ($type == 'image') {
-                foreach ($files as $image) {
-                    $new_gallery['images'][] = url('public/images/service_files/' . $image);
-                }
-            }
-            if ($type == 'youtube_video') {
-                foreach ($files as $youtube_video) {
-                    $new_gallery['youtube_video'][] = $youtube_video;
-                }
-            }
-            if ($type == 'video') {
-                foreach ($files as $video) {
-                    $new_gallery['videos'][] = url('public/videos/service_files/' . $video);
-                }
-            }
-        }
-        return $new_gallery;
-    }
+    
 
 }

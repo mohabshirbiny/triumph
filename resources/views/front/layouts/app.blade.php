@@ -125,6 +125,10 @@
             uiLibrary: 'bootstrap4',
             format: 'dd mmmm'
         });
+    
+        function changeLanguage(params) {
+            document.getElementById("changeLanguage").submit(); 
+        }
     </script>
 
     @yield('js')

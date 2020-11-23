@@ -100,7 +100,7 @@
                                     <span><i class="fas fa-key"></i></span>
                                 </div>
                                 <div class="image-box">
-                                    <img src="Triumph0052.jpg" class="img-fluid blur-up lazyload"
+                                    <img src="{{asset('assets/Triumph0052.jpg')}}}}" class="img-fluid blur-up lazyload"
                                         alt="">
                                 </div>
                                 <div class="content">
@@ -358,13 +358,13 @@
 
 
     <!-- service section start -->
-    
+    @include('front.layouts.services')
     <!-- service section end -->
 
 
     <!-- subscribe section start -->
     <section class="medium-section parallax-img subscribe-section">
-        <img src="0D7A9005.jpg" class="bg-img" alt="">
+        <img src="{{asset('assets/0D7A9005.jpg')}}" class="bg-img" alt="">
         <div class="container">
             <div class="title-1">
                 <span class="title-label">our</span>

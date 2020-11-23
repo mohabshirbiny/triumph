@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
 use App\Slider;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::All();
-        return view('front.index',compact('sliders'));
+        $services = Service::All();
+        return view('front.index',compact('sliders','services'));
     }
 }

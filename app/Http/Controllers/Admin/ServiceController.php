@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Hotel;
 use App\Http\Controllers\Controller;
 use App\Service;
 use App\ServiceCategory;
@@ -23,16 +24,13 @@ class ServiceController extends Controller
         $query = Service::query();
         return DataTables::of($query)
             ->addColumn("name_en", function ($record) {
-                $name = json_decode($record->name, true);
-                return $name['en'];
+                return $record->title_en;
             })
             ->addColumn("name_ar", function ($record) {
-                $name = json_decode($record->name, true);
-                return $name['ar'];
+                return $record->title_ar;
             })
-            ->addColumn("gallery", function ($record) {
-                $link = route("services.gallery", $record->id);
-                return "<a href='$link'>Gellery</a>";
+            ->addColumn("image", function ($record) {
+                return "<img style='max-width: 100px;min-width: 100px;' src=".$record->image_path.">";
             })
             ->addColumn("actions", function ($record) {
                 $edit_link = route("services.edit", $record->id);
@@ -43,7 +41,7 @@ class ServiceController extends Controller
                 ";
                 return $actions;
             })
-            ->rawColumns(['actions', "gallery"])->make(true);
+            ->rawColumns(['actions', "image"])->make(true);
     }
 
     /**
@@ -53,8 +51,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        $categories = ServiceCategory::get();
-        return view("admin.services.create", compact("categories"));
+        $hotels = Hotel::all();
+        return view("admin.services.create", compact("hotels"));
     }
 
     /**
@@ -66,26 +64,21 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            "service_category_id" => "required",
-            "name.en" => "required",
-            "name.ar" => "required",
-            "logo" => "required",
-            "about.en" => "required",
-            "about.ar" => "required",
+            "hotel_id" => "required",
+            "title.en" => "required",
+            "title.ar" => "required",
+            "image" => "required",
+            "text.en" => "required",
+            "text.ar" => "required",
         ]);
 
-        $logo = $this->uploadFile($request->logo, 'Service', 'logo', 'image', 'service_files');
-        $cover = $this->uploadFile($request->cover, 'Service', 'cover', 'image', 'service_files');
+        $image = $this->uploadFile($request->image, 'Service', 'logo', 'image', 'service_files');
 
         Service::create([
-            "service_category_id" => $request->service_category_id,
-            "name" => json_encode($request->name),
-            "about" => json_encode($request->about),
-            "location_url" => $request->location_url,
-            "social_media" => json_encode($request->social_media),
-            "contact_details" => json_encode($request->contact_details),
-            "logo" => $logo,
-            "cover" => $cover,
+            "hotel_id" => $request->hotel_id,
+            "title" => json_encode($request->title),
+            "text" => json_encode($request->text),
+            "image" => $image,
         ]);
 
         return redirect(route("services.index"))->with("success_message", "Service has been stored successfully.");
@@ -110,13 +103,10 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        $details = Service::find($id);
-        $details->social_media = json_decode($details->social_media, true);
-        $details->name = json_decode($details->name, true);
-        $details->about = json_decode($details->about, true);
-        $details->contact_details = json_decode($details->contact_details, true);
-        $categories = ServiceCategory::get();
-        return view("admin.services.edit", compact("id", "categories", "details"));
+        $service = Service::find($id);
+        $hotels = Hotel::all();
+
+        return view("admin.services.edit", compact("service", "hotels"));
     }
 
     /**
@@ -129,37 +119,30 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            "service_category_id" => "required",
-            "name.en" => "required",
-            "name.ar" => "required",
-            "about.en" => "required",
-            "about.ar" => "required",
+            "hotel_id" => "required",
+            "title.en" => "required",
+            "title.ar" => "required",
+            "text.en" => "required",
+            "text.ar" => "required",
         ]);
 
         $service = Service::find($id);
 
-        $logo = $service->logo;
-        if ($request->logo) {
-            $logo = $this->uploadFile($request->logo, 'Service', 'logo', 'image', 'service_files');
+        $image = $service->image;
+        if ($request->image) {
+            $image = $this->uploadFile($request->image, 'Service', 'image', 'image', 'service_files');
         }
 
-        $cover = $service->cover;
-        if ($request->cover) {
-            $cover = $this->uploadFile($request->cover, 'Service', 'cover', 'image', 'service_files');
-        }
+        
 
         $service->update([
-            "service_category_id" => $request->service_category_id,
-            "name" => json_encode($request->name),
-            "about" => json_encode($request->about),
-            "location_url" => $request->location_url,
-            "social_media" => json_encode($request->social_media),
-            "contact_details" => json_encode($request->contact_details),
-            "logo" => $logo,
-            "cover" => $cover,
+            "hotel_id" => $request->hotel_id,
+            "title" => json_encode($request->title),
+            "text" => json_encode($request->text),
+            "image" => $image,
         ]);
 
-        return redirect(route("services.index"))->with("success_message", "vendor has been updated successfully.");
+        return redirect(route("services.index"))->with("success_message", "service has been updated successfully.");
     }
 
     /**

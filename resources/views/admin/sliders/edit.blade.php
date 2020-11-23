@@ -38,9 +38,9 @@
                                 <div class="card-body">
                                     
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Category</label>
+                                        <label for="exampleInputEmail1">Hotel</label>
                                         <select name="hotel_id" class="form-control">
-                                            <option value="">Select Category</option>
+                                            <option value="">Select Hotel</option>
                                             @foreach ($hotels as $hotel)
                                                 <option value="{{ $hotel->id }}" @if($slider->hotel_id == $hotel->id) selected @endif>{{ json_decode($hotel->title, true)['en'] . " - " . json_decode($hotel->title, true)['ar'] }}</option>
                                             @endforeach

@@ -11,16 +11,22 @@
 |
  */
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-
-
+use Illuminate\Support\Facades\Session;
 
 // Route::get('/', 'Admin\AdminController@index')->name('dashboard');
 
 Route::get('/', 'HomeController@index')->name('dashboard');
 
+Route::post('/locale', function(){
+    // dd(request()->locale);
+    // session(['locale' => request()->locale]);
+    Session::put('locale', request()->locale);
+    // dd(session('locale') );
+    return redirect()->back();
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Auth::routes(['register' => false]);
@@ -55,20 +61,8 @@ Route::group(['prefix' => 'admin','resource' => 'Admin','middleware' => 'auth'],
     Route::post('events/{id}/gallery', 'Admin\EventController@storeGallery')->name("events.gallery.store");
     Route::get('events/{id}/gallery/{gallery}', 'Admin\EventController@deleteGallery')->name("events.gallery.delete");
 
-
-   
-
-    Route::get('service-categories/grid', 'Admin\ServiceCategoryController@grid')->name("service-categories.grid");
-    Route::resource('service-categories', 'Admin\ServiceCategoryController');
-
     Route::get('services/grid', 'Admin\ServiceController@grid')->name("services.grid");
-    Route::get('services/{service}/gallery', 'Admin\ServiceController@gallery')->name("services.gallery");
-    Route::get('services/{service}/create-gallery', 'Admin\ServiceController@createGallery')->name("services.gallery.create");
-    Route::post('services/{service}/gallery', 'Admin\ServiceController@storeGallery')->name("services.gallery.store");
-    Route::get('services/{service}/gallery/{gallery}', 'Admin\ServiceController@deleteGallery')->name("services.gallery.delete");
     Route::resource('services', 'Admin\ServiceController');
-
-   
 
     Route::get('facilities/grid', 'Admin\FacilityController@grid')->name("facilities.grid");
     Route::resource('facilities', 'Admin\FacilityController');

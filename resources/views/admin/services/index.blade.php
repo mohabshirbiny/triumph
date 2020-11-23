@@ -3,6 +3,7 @@
 @section("content")
 
     <div class="content-wrapper">
+        @include('layouts.alerts')
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
@@ -28,9 +29,9 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Name (en)</th>
-                                            <th>Name (ar)</th>
-                                            <th>Gallery</th>
+                                            <th>Title (en)</th>
+                                            <th>Title (ar)</th>
+                                            <th>Image</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -61,9 +62,9 @@ $(function() {
         ajax: '{!! route('services.grid') !!}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'name_en', name: 'name_en' },
-            { data: 'name_ar', name: 'name_ar' },
-            { data: 'gallery', name: 'gallery' },
+            { data: 'title_en', name: 'title_en' },
+            { data: 'title_ar', name: 'title_ar' },
+            { data: 'image', name: 'image' },
             { data: 'actions', name: 'actions' },
         ]
     });

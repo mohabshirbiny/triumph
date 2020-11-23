@@ -4,8 +4,8 @@
             <div class="col">
                 <div class="menu">
                     <div class="brand-logo">
-                        <a href="../index.html">
-                            <img src="triumph-logo.png" alt=""
+                        <a href="{{url('/')}}">
+                            <img src="{{asset('assets/triumph-logo.png')}}" alt=""
                                 class="img-fluid blur-up lazyload">
                         </a>
                     </div>
@@ -22,7 +22,7 @@
                                         </div>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="nav-link menu-title">Home</a>
+                                        <a href="#" class="nav-link menu-title">{{__('app.Home')}}</a>
                                        <!-- <ul class="nav-submenu menu-content">
                                             <li><a href="#" class="menu-title">Hotel Demo</a>
                                                 <ul class="nav-sub-childmenu level1">
@@ -67,9 +67,9 @@
                                         </ul>-->
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="nav-link menu-title">hotel</a>
+                                        <a href="#" class="nav-link menu-title">{{__('app.Hotel')}}</a>
                                         <ul class="nav-submenu menu-content">
-                                            <li><a href="about-us-2.html" class="menu-title">About</a>
+                                            <li><a href="about-us-2.html" class="menu-title">{{__('app.About')}}</a>
                                                 
                                             </li>
                                             <li><a href="#" class="menu-title">Rooms & Suits</a>
@@ -116,9 +116,9 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="nav-link menu-title">Media</a>
+                                        <a href="#" class="nav-link menu-title">{{__('app.Media')}}</a>
                                         <ul class="nav-submenu menu-content">
-                                            <li><a href="#" class="menu-title">Gallery</a>
+                                            <li><a href="#" class="menu-title">{{__('app.Gallery')}}</a>
                                                <!-- <ul class="nav-sub-childmenu submenu-content level1">
                                                     <li><a href="javascript:void(0)" class="menu-title">grid
                                                             view</a>
@@ -130,26 +130,26 @@
                                                     
                                                     
                                             </li>
-                                            <li><a href="#" class="menu-title">Videos</a>
+                                            <li><a href="#" class="menu-title">{{__('app.Videos')}}</a>
                                                
                                             </li>
-                                            <li><a href="#" class="menu-title">Press</a>
+                                            
                                                 
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="nav-link menu-title">Career</a>
+                                        <a href="#" class="nav-link menu-title">{{__('app.Career')}}</a>
                                       
                                     </li>
                                     <li class="dropdown">
-                                        <a href="contact-2.html" class="nav-link menu-title">Contact</a>
+                                        <a href="contact-2.html" class="nav-link menu-title">{{__('app.Contact')}}</a>
                                        
                                     </li>
-                                   <li class="dropdown">
+                                   {{-- <li class="dropdown">
                                         <a href="#" class="nav-link menu-title">Book Now</a>
                                        
-                                    </li>
+                                    </li> --}}
                                     
                                 </ul>
                             </div>
@@ -164,11 +164,14 @@
                             </select>
                         </li>-->
                         <li class="front-setting">
-                            <select>
-                                <option value="volvo">ENG</option>
-                                <option value="saab">عربي</option>
+                            <form id="changeLanguage" class="" action="{{url('/locale')}}" method="post">
+                                @csrf
+                            <select name='locale'>
+                                <option onclick="changeLanguage()" @if (app()->getLocale() == 'en') selected @endif value="en">ENG</option>
+                                <option  onclick="changeLanguage()" @if (app()->getLocale() == 'ar') selected @endif value="ar">عربي</option>
                                
                             </select>
+                        </form>
                         </li>
                         <li class="user user-light">
                             <a href="#">
