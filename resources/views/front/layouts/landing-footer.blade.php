@@ -60,11 +60,11 @@
                         <h5>Gallery</h5>
                     </div>
                     <div class="footer-content">
-                        <div class="footer-place">
-                            <div class="row">
-                                <div class="col-4">
+                        <div class="footer-place ">
+                            <div class="row zoom-gallery">
+                                <div class="col-4 grid-item">
                                     <div class="place">
-                                        <a href="#">
+                                        <a href="{{asset('assets/thumb01.jpg')}}">
                                             <img src="{{asset('assets/thumb01.jpg')}}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                             {{-- <div class="overlay">
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="place">
-                                        <a href="#">
+                                        <a href="{{asset('assets/thumb02.jpg')}}">
                                             <img src="{{asset('assets/thumb02.jpg')}}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                             <div class="overlay">
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="place">
-                                        <a href="#">
+                                        <a href="{{asset('assets/thumb03.jpg')}}">
                                             <img src="{{asset('assets/thumb03.jpg')}}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                             <div class="overlay">
@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="place">
-                                        <a href="#">
+                                        <a href="{{asset('assets/thumb04.jpg')}}">
                                             <img src="{{asset('assets/thumb04.jpg')}}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                             <div class="overlay">
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="place">
-                                        <a href="#">
+                                        <a href="{{asset('assets/thumb05.jpg')}}">
                                             <img src="{{asset('assets/thumb05.jpg')}}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                             <div class="overlay">
@@ -119,122 +119,12 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="place">
-                                        <a href="#">
+                                        <a href="{{asset('assets/thumb06.jpg')}}">
                                             <img src="{{asset('assets/thumb06.jpg')}}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                             <div class="overlay">
                                                 <h6>Triumph</h6>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row content grid zoom-gallery" style="position: relative; height: 2119.13px;">
-                            <div class="popular grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 0px; top: 0px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/01.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;01.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/01.jpg" alt="" class="img-fluid blur-up lazyload bg-img" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="latest grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 570px; top: 0px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/02.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;02.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/02.jpg" alt="" class="bg-img img-fluid blur-up lazyload" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="popular grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 0px; top: 353px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="{{asset('assets/thumb01.jpg')}}" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;03.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="{{asset('assets/thumb01.jpg')}}" alt="" class="bg-img img-fluid blur-up lazyload" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="trend grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 570px; top: 353px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/04.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;04.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/04.jpg" alt="" class="img-fluid blur-up lazyload bg-img" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="latest grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 0px; top: 706px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/05.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;05.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/05.jpg" alt="" class="img-fluid blur-up lazyload bg-img" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="trend grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 570px; top: 706px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/06.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;06.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/06.jpg" alt="" class="img-fluid blur-up lazyload bg-img" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="popular grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 0px; top: 1059px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/07.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;07.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/07.jpg" alt="" class="img-fluid blur-up lazyload bg-img" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="latest grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 570px; top: 1059px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/08.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;08.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/08.jpg" alt="" class="bg-img img-fluid blur-up lazyload" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="popular grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 0px; top: 1412px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/09.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;09.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/09.jpg" alt="" class="bg-img img-fluid blur-up lazyload" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="trend grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 570px; top: 1412px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/10.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;10.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/10.jpg" alt="" class="img-fluid blur-up lazyload bg-img" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="latest grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 0px; top: 1765px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/11.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;11.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/11.jpg" alt="" class="img-fluid blur-up lazyload bg-img" style="display: none;">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="trend grid-item wow fadeInUp col-sm-6" style="position: absolute; left: 570px; top: 1765px;">
-                                <div class="overlay">
-                                    <div class="portfolio-image">
-                                        <a href="./Triumph Hotel _ Gallery_files/12.jpg" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;12.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; display: block;">
-                                            <img src="./Triumph Hotel _ Gallery_files/12.jpg" alt="" class="img-fluid blur-up lazyload bg-img" style="display: none;">
                                         </a>
                                     </div>
                                 </div>
