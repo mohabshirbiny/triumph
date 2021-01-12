@@ -85,7 +85,7 @@ class HomeController extends Controller
 
     public function getRestaurantData($hotel_slug,$id)
     {
-        
+        $restaurant = Resturant::findorfail($id);
         $hotel = $restaurant->hotel;
         // dd($id,$hotel_slug);
         return view('front.restaurant-details',compact('restaurant','hotel'));
