@@ -56,7 +56,7 @@
 
     <!-- pre-loader start -->
     <div class="loader-wrapper img-gif">
-        <img src="{{url('/assets/images/loader.gif')}}" alt="">
+        <img src="{{url('/assets/triumph-logo.png')}}" alt="">
     </div>
     <!-- pre-loader end -->
 
