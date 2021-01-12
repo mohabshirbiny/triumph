@@ -35,7 +35,7 @@
 
 <!-- app 2 -->
 <section class="app-section medium-section">
-    <img src="../assets/images/cab/app-bg.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+    <img src="{{asset('assets/images/cab/app-bg.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
