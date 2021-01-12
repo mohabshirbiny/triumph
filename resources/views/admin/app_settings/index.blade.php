@@ -111,17 +111,16 @@
 @endsection
 
 @section("js")
-    <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
-    <script src="https://cdn.tiny.cloud/1/44ia262ywc2w8s8nx7ie3tclq5onkeq3hly1r3n09e5njpd8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="https://cdn.tiny.cloud/1/44ia262ywc2w8s8nx7ie3tclq5onkeq3hly1r3n09e5njpd8/tinymce/5/jquery.tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-           $('textarea#tiny').tinymce({    });
-           $('textarea#landing_text_ar').tinymce({    });
-           $('textarea#landing_text_en').tinymce({    });
-           $('textarea#landing_title_ar').tinymce({    });
-           $('textarea#landing_title_en').tinymce({    });
+    <script src="https://cdn.ckeditor.com/4.15.1/full/ckeditor.js"></script>
 
-         
+    
+
+    <script>
+        CKEDITOR.replace( 'landing_text[en]' );
+        CKEDITOR.replace( 'landing_text[ar]' );
+        CKEDITOR.replace( 'landing_title[en]' );
+        CKEDITOR.replace( 'landing_title[ar]' );
+
     </script>
     <script type="text/javascript">
     $(document).ready(function () {
