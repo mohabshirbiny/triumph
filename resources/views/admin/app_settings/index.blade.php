@@ -81,7 +81,6 @@
                                                         <span class="text-danger">{{ $errors->first('landing_video') }}</span>
                                                     @endif
                                                 </div>
-                                                <textarea id="tiny"></textarea>
 
                                             </div>
                                             
