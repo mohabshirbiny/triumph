@@ -100,5 +100,19 @@
         </div>
     </div>
 </section>
+
+<section class="portfolio-section bg-white small-section ratio2_3">
+    <div class="container">
+        <div class="filter-button-group">
+            <ul>
+                <li class="active" data-filter="*">All</li>
+                <li data-filter=".popular" class="">popular</li>
+                <li data-filter=".latest" class="">latest</li>
+                <li data-filter=".trend" class="">trend</li>
+            </ul>
+        </div>
+        
+    </div>
+</section>
 <!-- testimonial section end -->
 @endsection

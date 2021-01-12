@@ -122,29 +122,25 @@ class GuestReviewController extends Controller
         $this->validate($request, [
             "name.en" => "required",
             "name.ar" => "required",
+            "review.en" => "required",
+            "review.ar" => "required",
+            "hotel.en" => "required",
+            "hotel.ar" => "required",
         ]);
 
         $hotel = GuestReview::find($id);
 
-        $logo = $hotel->logo;
-        if ($request->logo) {
-            $logo = $this->uploadFile($request->logo, 'GuestReview', 'logo', 'image', 'guest_review_files');
-        }
+
         $cover = $hotel->cover;
         if ($request->cover) {
             $cover = $this->uploadFile($request->cover, 'GuestReview', 'cover', 'image', 'guest_review_files');
         }
 
         $hotel->update([
-            "name" => json_encode($request->name),
             "name"             => json_encode($request->name),
-            "slug"              => Str::slug($request->slug),
             "review"             => json_encode($request->review),
-            "location_url"      => $request->location_url,
-            "booking_url"       => $request->booking_url,
-            "social_media"      => json_encode($request->social_media),
-            "contact_details"   => json_encode($request->contact_details),
-            "logo"              => $logo,
+            "link"      => $request->link,
+            "hotel"      => json_encode($request->hotel),
             "cover"             => $cover,
         ]);
 
