@@ -23,17 +23,58 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form" id="quickForm" method="post" action="{{ route('guest reviews.update', $details->id) }}" enctype="multipart/form-data">
+                            <form role="form" id="quickForm" method="post" action="{{ route('guest-reviews.update', $details->id) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method("PUT")
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">title (en)</label>
-                                        <input type="text" name="title[en]" value='{{ $details->title['en'] }}' class="form-control" placeholder="Enter title en" />
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">name (en)</label>
+                                        <input type="text" name="name[en]" class="form-control" value="{{ $details->name_en }}" placeholder="Enter name en" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">name (ar)</label>
+                                            <input type="text" name="name[ar]" class="form-control" value="{{ $details->name_ar }}" placeholder="Enter name ar" />
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">title (ar)</label>
-                                        <input type="text" name="title[ar]" value='{{ $details->title['ar'] }}' class="form-control" placeholder="Enter title ar" />
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">review (ar)</label>
+                                            <textarea name="review[ar]" class="form-control" id="" cols="30" rows="2">{{ $details->review_ar }}</textarea>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">review (en)</label>
+                                            <textarea name="review[en]" class="form-control" id="" cols="30" rows="2">{{ $details->review_en }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">hotel (en)</label>
+                                        <input type="text" name="hotel[en]" class="form-control" value="{{ $details->hotel_en }}" placeholder="Enter hotel en" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">hotel (ar)</label>
+                                            <input type="text" name="hotel[ar]" class="form-control" value="{{ $details->hotel_ar }}" placeholder="Enter hotel ar" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">Link</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="url" name="link" value='{{ $details->link }}' class="form-control" placeholder="Enter link" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">cover</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='cover' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>                                        
                                     </div>
                                    
                                 </div>

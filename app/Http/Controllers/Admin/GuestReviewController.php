@@ -106,7 +106,7 @@ class GuestReviewController extends Controller
     public function edit($id)
     {
         $details = GuestReview::find($id);
-        $details->name = json_decode($details->name, true);
+        // $details->name = json_decode($details->name, true);
         return view("admin.guest-reviews.edit", compact("details"));
     }
 
@@ -159,10 +159,10 @@ class GuestReviewController extends Controller
      */
     public function delete($id)
     {
-        $hotel = GuestReview::findOrfail($id);
+        $GuestReview = GuestReview::findOrfail($id);
         // dd($hotel);
-        // $hotel->delete();
+        $GuestReview->delete();
 
-        return redirect(route("guest-reviews.index"))->with("success_message", "hotel has been deleted successfully.");
+        return redirect(route("guest-reviews.index"))->with("success_message", "Guest Review has been deleted successfully.");
     }
 }

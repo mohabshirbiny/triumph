@@ -43,6 +43,7 @@
 
     <!-- Themify icon -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/magnific-popup.css')}}">
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/color1.css')}}">
@@ -122,8 +123,10 @@
     <script src="{{asset('assets/js/bootstrap.js')}}"></script>
 
     <!-- lazyload js-->
-    <script src="{{asset('assets/js/lazysizes.min.js')}}"></script>
-
+    <script src="{{asset('assets/js/jquery.magnific-popup.js')}}"></script>
+    <script src="{{asset('assets/js/zoom-gallery.js')}}"></script>
+    <script src="{{asset('assets/js/filter.js')}}"></script>
+    <script src="{{asset('assets/js/isotope.min.js')}}"></script>
     <!-- lazyload js-->
     <script src="{{asset('assets/js/lazysizes.min.js')}}"></script>
 
