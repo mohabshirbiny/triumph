@@ -83,6 +83,71 @@
                                                 </div>
 
                                             </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="exampleInputEmail1">Footer Image 1</label>
+                                                    <img style="width: 150px;" src="{{ url('images/footer_image_files/'.$appSettingsData['footer_images']['1'] )}}" alt="ddd">
+                                                    <br>
+                                                    <input type="file" id="footer_images" name="footer_images[1]" accept="image/*" class="form-control">
+                                                    @if ($errors->has('footer_images'))
+                                                        <span class="text-danger">{{ $errors->first('footer_images') }}</span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <img style="width: 150px;" src="{{ url('images/footer_image_files/'.$appSettingsData['footer_images']['2'] )}}" alt="ddd">
+                                                    <br>
+                                                    <label for="exampleInputEmail1">Footer Image 2</label>
+                                                    <input type="file" id="footer_images" name="footer_images[2]" accept="image/*" class="form-control">
+                                                    @if ($errors->has('footer_images'))
+                                                        <span class="text-danger">{{ $errors->first('footer_images') }}</span>
+                                                    @endif
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <img style="width: 150px;" src="{{ url('images/footer_image_files/'.$appSettingsData['footer_images']['3'] )}}" alt="ddd">
+                                                    <br>
+                                                    <label for="exampleInputEmail1">Footer Image 3</label>
+                                                    <input type="file" id="footer_images" name="footer_images[3]" accept="image/*" class="form-control">
+                                                    @if ($errors->has('footer_images'))
+                                                        <span class="text-danger">{{ $errors->first('footer_images') }}</span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <img style="width: 150px;" src="{{ url('images/footer_image_files/'.$appSettingsData['footer_images']['4'] )}}" alt="ddd">
+                                                    <br>
+                                                    <label for="exampleInputEmail1">Footer Image 4</label>
+                                                    <input type="file" id="footer_images" name="footer_images[4]" accept="image/*" class="form-control">
+                                                    @if ($errors->has('footer_images'))
+                                                        <span class="text-danger">{{ $errors->first('footer_images') }}</span>
+                                                    @endif
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <img style="width: 150px;" src="{{ url('images/footer_image_files/'.$appSettingsData['footer_images']['5'] )}}" alt="ddd">
+                                                    <br>
+                                                    <label for="exampleInputEmail1">Footer Image 5</label>
+                                                    <input type="file" id="footer_images" name="footer_images[5]" accept="image/*" class="form-control">
+                                                    @if ($errors->has('footer_images'))
+                                                        <span class="text-danger">{{ $errors->first('footer_images') }}</span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    
+                                                    <img style="width: 150px;" src="{{ url('images/footer_image_files/'.$appSettingsData['footer_images']['6'] )}}" alt="ddd">
+                                                    <br>
+                                                    <label for="exampleInputEmail1">Footer Image 6</label>
+                                                    <input type="file" id="footer_images" name="footer_images[6]" accept="image/*" class="form-control">
+                                                    @if ($errors->has('footer_images'))
+                                                        <span class="text-danger">{{ $errors->first('footer_images') }}</span>
+                                                    @endif
+                                                </div>
+
+                                            </div>
                                             
                                         </div>
                                          

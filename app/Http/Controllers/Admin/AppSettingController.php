@@ -6,9 +6,13 @@ use App\AppSetting;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use App\Traits\UploadFiles;
 
 class AppSettingController extends Controller
 {
+
+    use UploadFiles;
+
     public function getAll()
     {
         $appSettings = AppSetting::all()->groupby('key')->toArray();
@@ -31,10 +35,18 @@ class AppSettingController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        if ($request->has('about_us_attachments')) {
-            $request['about_us_attachments'] = explode("\n", str_replace("\r", "", $request->about_us_attachments ));
+        
+        // dd($request->all()  );
+
+        if ($request->has('footer_images')) {
+            foreach ($request->footer_images as $key => $footer_image) {
+                $footer_image_name = $this->uploadFile($footer_image, 'AppSetting', 'image', 'image', 'footer_image_files');
+
+                $data['footer_images'][$key] = $footer_image_name;
+                sleep(1);
+            }
         }
-        // dd($request->all() );
+        // dd($data);
         foreach ($data as $key => $value) {
             
             AppSetting::where('key',$key)->update([

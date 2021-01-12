@@ -62,72 +62,20 @@
                     <div class="footer-content">
                         <div class="footer-place ">
                             <div class="row zoom-gallery">
-                                <div class="col-4 grid-item">
-                                    <div class="place">
-                                        <a href="{{asset('assets/thumb01.jpg')}}">
-                                            <img src="{{asset('assets/thumb01.jpg')}}"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            {{-- <div class="overlay">
-                                                <h6>Triumph</h6>
-                                            </div> --}}
-                                        </a>
+                                @foreach ($appSettingsData['footer_images'] as $footer_images)
+                                    <div class="col-4 grid-item">
+                                        <div class="place">
+                                            <a href="{{ url('images/footer_image_files/'.$footer_images )}}">
+                                                <img src="{{ url('images/footer_image_files/'.$footer_images )}}"
+                                                    class="img-fluid blur-up lazyload" alt="">
+                                                {{-- <div class="overlay">
+                                                    <h6>Triumph</h6>
+                                                </div> --}}
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="place">
-                                        <a href="{{asset('assets/thumb02.jpg')}}">
-                                            <img src="{{asset('assets/thumb02.jpg')}}"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <div class="overlay">
-                                                <h6>Triumph</h6>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="place">
-                                        <a href="{{asset('assets/thumb03.jpg')}}">
-                                            <img src="{{asset('assets/thumb03.jpg')}}"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <div class="overlay">
-                                                <h6>Triumph</h6>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="place">
-                                        <a href="{{asset('assets/thumb04.jpg')}}">
-                                            <img src="{{asset('assets/thumb04.jpg')}}"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <div class="overlay">
-                                                <h6>Triumph</h6>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="place">
-                                        <a href="{{asset('assets/thumb05.jpg')}}">
-                                            <img src="{{asset('assets/thumb05.jpg')}}"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <div class="overlay">
-                                                <h6>Triumph</h6>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="place">
-                                        <a href="{{asset('assets/thumb06.jpg')}}">
-                                            <img src="{{asset('assets/thumb06.jpg')}}"
-                                                class="img-fluid blur-up lazyload" alt="">
-                                            <div class="overlay">
-                                                <h6>Triumph</h6>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                @endforeach
+                                
                             </div>
                         </div>
                     </div>
