@@ -1,5 +1,5 @@
 @extends("layouts.admin")
-@section("page_title", "hotels")
+@section("page_title", "guest reviews")
 @section("content")
 
     <div class="content-wrapper">
@@ -18,8 +18,8 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    View all hotels
-                                    <a class="btn btn-info btn-sm text-right" href="{{ route('hotels.create') }}">+ Add New</a>
+                                    View all guest reviews
+                                    <a class="btn btn-info btn-sm text-right" href="{{ route('guest-reviews.create') }}">+ Add New</a>
                                 </h3>
                             </div>
                             <!-- /.card-header -->
@@ -57,7 +57,7 @@ $(function() {
     $('#example2').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{!! route('hotels.grid') !!}',
+        ajax: '{!! route('guest-reviews.grid') !!}',
         columns: [
             { data: 'id', name: 'id' },
             { data: 'title_en', name: 'title_en' },

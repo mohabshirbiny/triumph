@@ -1,5 +1,5 @@
 @extends("layouts.admin")
-@section("page_title", "Add new hotel")
+@section("page_title", "Add new guest review")
 @section("content")
 
     <div class="content-wrapper">
@@ -19,25 +19,62 @@
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Add new hotel</h3>
+                                <h3 class="card-title">Add new guest review</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form" id="quickForm" method="post" action="{{ route('hotels.store') }}" enctype="multipart/form-data">
+                            <form role="form" id="quickForm" method="post" action="{{ route('guest-reviews.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">title (en)</label>
-                                        <input type="text" name="title[en]" class="form-control" value="{{old('title.en')}}" placeholder="Enter title en" />
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">name (en)</label>
+                                        <input type="text" name="name[en]" class="form-control" value="{{old('name.en')}}" placeholder="Enter name en" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">name (ar)</label>
+                                            <input type="text" name="name[ar]" class="form-control" value="{{old('name.ar')}}" placeholder="Enter name ar" />
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">title (ar)</label>
-                                        <input type="text" name="title[ar]" class="form-control" value="{{old('title.ar')}}" placeholder="Enter title ar" />
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">review (ar)</label>
+                                            <textarea name="review[ar]" class="form-control" id="" cols="30" rows="2">{{old('review.ar')}}</textarea>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">review (en)</label>
+                                            <textarea name="review[en]" class="form-control" id="" cols="30" rows="2">{{old('review.en')}}</textarea>
+                                        </div>
                                     </div>
-                                    {{-- <div class="form-group">
-                                        <label for="exampleInputEmail1">Icon</label>
-                                        <input type="file" name="icon" class="form-control" />
-                                    </div> --}}
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">hotel (en)</label>
+                                        <input type="text" name="hotel[en]" class="form-control" value="{{old('hotel.en')}}" placeholder="Enter hotel en" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">hotel (ar)</label>
+                                            <input type="text" name="hotel[ar]" class="form-control" value="{{old('hotel.ar')}}" placeholder="Enter hotel ar" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">Link</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="url" name="link" value='{{old('link')}}' class="form-control" placeholder="Enter link" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">cover</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='cover' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>                                        
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">

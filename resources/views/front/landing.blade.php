@@ -63,20 +63,21 @@
         <div class="row">
             <div class="offset-lg-1 col-lg-10">
                 <div class="slide-1 arrow-classic">
+                    @foreach ($guestReviews as $guestReview)
                     <div>
                         <div class="testimonial">
                             <div class="top-part">
                                 <div class="img-part">
                                     <div class="animation-circle-inverse"><i></i><i></i><i></i></div>
-                                    <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/7c/01/default-avatar-2020-5.jpg" class="img-fluid blur-up lazyload"
+                                    <img src="{{$guestReview->cover_path}}" class="img-fluid blur-up lazyload"
                                         alt="">
                                     <i class="fas fa-heart heart-icon"><span class="effect"></span></i>
                                 </div>
                             </div>
                             <div class="bottom-part">
-                                <p>Absolutely It was great accommodation specially guest room service was friendly and helpful , food was delicious and fresh , room is clean with agood view location ( Deluxe room is perfect ) . totally recommended </p>
-                                <a href="https://www.tripadvisor.com/ShowUserReviews-g294201-d15190206-r777797383-Triumph_Luxury_Hotel-Cairo_Cairo_Governorate.html"><h3> Mohamed M Eltantawy</h3></a>
-                                <span style="color: #9a8348;" >Triumph Luxury</span>
+                                <p>{{$guestReview->review_en}} </p>
+                                <a href="{{$guestReview->link}}"><h3> {{$guestReview->name_en}}</h3></a>
+                                <span style="color: #9a8348;" >{{$guestReview->hotel_en}}</span>
                                 <br>
                                 <br>
                                 <div class="rating">
@@ -92,167 +93,8 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="testimonial">
-                            <div class="top-part">
-                                <div class="img-part">
-                                    <div class="animation-circle-inverse"><i></i><i></i><i></i></div>
-                                    <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/de/0a/default-avatar-2020-35.jpg" class="img-fluid blur-up lazyload"
-                                        alt="">
-                                    <i class="fas fa-heart heart-icon"><span class="effect"></span></i>
-                                </div>
-                            </div>
-                            <div class="bottom-part">
-                                <p>Outstanding stay, unexpected level of luxury, friendly staff. also breakfast was fresh and clean, Parking Was Very Expensive but otherwise its safe and respectful staff, Music played was very soft and relaxing.</h3>
-                                <h3><a href="https://www.tripadvisor.com/ShowUserReviews-g294201-d15190206-r776881525-Triumph_Luxury_Hotel-Cairo_Cairo_Governorate.html"></a> Moemen El-Zamzamy</h3>
-                                <span style="color: #9a8348;" >Triumph Luxury</span>
-                                <br>
-                                <br>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="testimonial">
-                            <div class="top-part">
-                                <div class="img-part">
-                                    <div class="animation-circle-inverse"><i></i><i></i><i></i></div>
-                                    <img src="https://media-cdn.tripadvisor.com/media/photo-l/09/5d/2f/48/omar-a.jpg" class="img-fluid blur-up lazyload"
-                                        alt="">
-                                    <i class="fas fa-heart heart-icon"><span class="effect"></span></i>
-                                </div>
-                            </div>
-                            <div class="bottom-part">
-                                <p>I have had one of the most exciting food experiences, the restaurant setup is perfect and the staff is very friendly and welcoming especially Morcos who really take care of us from the moment we entered
+                    @endforeach
 
-                                
-                                    </h3>
-                                <h3><a href="https://www.tripadvisor.com/ShowUserReviews-g297549-d14136419-r776557911-S_Square_Samurai-Hurghada_Red_Sea_and_Sinai.html"></a>Omar</h3>
-                                <span style="color: #9a8348;" >Triumph Luxury</span>
-                                <br>
-                                <br>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="testimonial">
-                            <div class="top-part">
-                                <div class="img-part">
-                                    <div class="animation-circle-inverse"><i></i><i></i><i></i></div>
-                                    <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/e4/ca/default-avatar-2020-51.jpg" class="img-fluid blur-up lazyload"
-                                        alt="">
-                                    <i class="fas fa-heart heart-icon"><span class="effect"></span></i>
-                                </div>
-                            </div>
-                            <div class="bottom-part">
-                                <p>We stayed for 5 days This hotel is an excellent choice we had a very calm stay and the staff was very helpful and welcoming will definitely repeat this visit also their food is delicious and the prices are very reasonable
-
-                                </p>
-                                    </h3>
-                                <a href="https://www.tripadvisor.com/ShowUserReviews-g294201-d1201610-r779053634-Triumph_Plaza_Hotel-Cairo_Cairo_Governorate.html"><h3>Dalia Genedy</h3> </a>
-                                <span style="color: #9a8348;" >Triumph PLAZA</span>
-                                <br>
-                                <br>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="testimonial">
-                            <div class="top-part">
-                                <div class="img-part">
-                                    <div class="animation-circle-inverse"><i></i><i></i><i></i></div>
-                                    <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/e7/fe/default-avatar-2020-58.jpg" class="img-fluid blur-up lazyload"
-                                        alt="">
-                                    <i class="fas fa-heart heart-icon"><span class="effect"></span></i>
-                                </div>
-                            </div>
-                            <div class="bottom-part">
-                                <p>A good hotel with a good service and cooperative crew...there was a free wifi with a good breakfast...also, home service has a policy to change tawel on daily basis as a precaution for covid-19...tea and coffe with kettle was for free at ur room
-                                </p>
-                                    </h3>
-                                <a href="https://www.tripadvisor.com/ShowUserReviews-g294201-d1201610-r778928868-Triumph_Plaza_Hotel-Cairo_Cairo_Governorate.html"><h3>Abdallah D</h3> </a>
-                                <span style="color: #9a8348;" >Triumph PLAZA</span>
-                                <br>
-                                <br>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="testimonial">
-                            <div class="top-part">
-                                <div class="img-part">
-                                    <div class="animation-circle-inverse"><i></i><i></i><i></i></div>
-                                    <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/ed/00/default-avatar-2020-4.jpg" class="img-fluid blur-up lazyload"
-                                        alt="">
-                                    <i class="fas fa-heart heart-icon"><span class="effect"></span></i>
-                                </div>
-                            </div>
-                            <div class="bottom-part">
-                                <p>The most helpful people I have ever seen the quick response and the quality of everything.. I can’t thank all of u enough.. mr Beshoy was like a brother for being helpful and really want to make the event so smooth and unique.. and a special thanks to me shady and the really talented DJ Eslam </p>
-                                    </h3>
-                                <a href="https://www.tripadvisor.com/ShowUserReviews-g294201-d1201610-r778928868-Triumph_Plaza_Hotel-Cairo_Cairo_Governorate.html"><h3>Ramy E</h3> </a>
-                                <span style="color: #9a8348;" >Triumph PLAZA</span>
-                                <br>
-                                <br>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 @extends("layouts.admin")
-@section("page_title", "hotel")
+@section("page_title", "guest review")
 @section("content")
 
     <div class="content-wrapper">
@@ -19,11 +19,11 @@
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Edit hotel</h3>
+                                <h3 class="card-title">Edit guest review</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form" id="quickForm" method="post" action="{{ route('hotels.update', $details->id) }}" enctype="multipart/form-data">
+                            <form role="form" id="quickForm" method="post" action="{{ route('guest reviews.update', $details->id) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method("PUT")
                                 <div class="card-body">

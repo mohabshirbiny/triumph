@@ -86,6 +86,7 @@ Route::group(['prefix' => 'admin','resource' => 'Admin','middleware' => 'auth'],
 
     Route::get('guest-reviews/grid', 'Admin\GuestReviewController@grid')->name("guest-reviews.grid");
     Route::resource('guest-reviews', 'Admin\GuestReviewController');
+    Route::get('guest-reviews/delete/{id}', 'Admin\GuestReviewController@delete')->name("guest-reviews.delete");
 
    
     

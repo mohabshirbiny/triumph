@@ -10,11 +10,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 class GuestReviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use UploadFiles;
+
     public function index()
     {
         return view("admin.guest-reviews.index");
@@ -25,19 +22,21 @@ class GuestReviewController extends Controller
         $query = GuestReview::query();
         return DataTables::of($query)
             ->addColumn("title_en", function ($record) {
-                $title = json_decode($record->title, true);
-                return $title['en'];
+                $name = json_decode($record->name, true);
+                return $name['en'];
             })
             ->addColumn("title_ar", function ($record) {
-                $title = json_decode($record->title, true);
-                return $title['ar'];
+                $name = json_decode($record->name, true);
+                return $name['ar'];
             })
             ->addColumn("actions", function ($record) {
-                $edit_link = route("hotels.edit", $record->id);
-                $delete_link = route("hotels.destroy", $record->id);
+                $actions = "";
+                $edit_link = route("guest-reviews.edit", $record->id);
+                $delete_link = route("guest-reviews.delete", $record->id);
+                
                 $actions = "
                     <a href='$edit_link' class='badge bg-warning'>Edit</a>
-                    <a href='$delete_link' class='badge bg-danger'>Delete</a>
+                    <a href='$delete_link' class='badge bg-danger delete-btn'>Delete</a>
                 ";
                 return $actions;
             })
@@ -51,7 +50,7 @@ class GuestReviewController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.guest-reviews.create");
     }
 
     /**
@@ -62,16 +61,38 @@ class GuestReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $this->validate($request, [
+            "name.en" => "required",
+            "name.ar" => "required",
+            "review.en" => "required",
+            "review.ar" => "required",
+            "hotel.en" => "required",
+            "hotel.ar" => "required",
+            "cover" => "required",
+        ]);
+        
+
+        $cover = $this->uploadFile($request->cover, 'GuestReview', 'cover', 'image', 'guest_review_files');
+
+        GuestReview::create([
+            "name"             => json_encode($request->name),
+            "review"             => json_encode($request->review),
+            "link"      => $request->link,
+            "hotel"      => json_encode($request->hotel),
+            "cover"             => $cover,
+        ]);
+        
+        return redirect(route("guest-reviews.index"))->with("success_message", "guest reviews has been stored successfully.");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\GuestReview  $guestReview
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(GuestReview $guestReview)
+    public function show($id)
     {
         //
     }
@@ -79,34 +100,69 @@ class GuestReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\GuestReview  $guestReview
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(GuestReview $guestReview)
+    public function edit($id)
     {
-        //
+        $details = GuestReview::find($id);
+        $details->name = json_decode($details->name, true);
+        return view("admin.guest-reviews.edit", compact("details"));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\GuestReview  $guestReview
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GuestReview $guestReview)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            "name.en" => "required",
+            "name.ar" => "required",
+        ]);
+
+        $hotel = GuestReview::find($id);
+
+        $logo = $hotel->logo;
+        if ($request->logo) {
+            $logo = $this->uploadFile($request->logo, 'GuestReview', 'logo', 'image', 'guest_review_files');
+        }
+        $cover = $hotel->cover;
+        if ($request->cover) {
+            $cover = $this->uploadFile($request->cover, 'GuestReview', 'cover', 'image', 'guest_review_files');
+        }
+
+        $hotel->update([
+            "name" => json_encode($request->name),
+            "name"             => json_encode($request->name),
+            "slug"              => Str::slug($request->slug),
+            "review"             => json_encode($request->review),
+            "location_url"      => $request->location_url,
+            "booking_url"       => $request->booking_url,
+            "social_media"      => json_encode($request->social_media),
+            "contact_details"   => json_encode($request->contact_details),
+            "logo"              => $logo,
+            "cover"             => $cover,
+        ]);
+
+        return redirect(route("guest-reviews.index"))->with("success_message", "hotel has been updated successfully.");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\GuestReview  $guestReview
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(GuestReview $guestReview)
+    public function delete($id)
     {
-        //
+        $hotel = GuestReview::findOrfail($id);
+        // dd($hotel);
+        // $hotel->delete();
+
+        return redirect(route("guest-reviews.index"))->with("success_message", "hotel has been deleted successfully.");
     }
 }

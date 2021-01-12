@@ -8,6 +8,7 @@ use App\Room;
 use App\Service;
 use App\Slider;
 use App\AppSetting;
+use App\GuestReview;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -44,6 +45,7 @@ class HomeController extends Controller
         }
         
         $hotels = Hotel::Where('active' ,1)->get();
+        $guestReviews = GuestReview::all();
 
 
         $appSettings = AppSetting::all()->groupby('key')->toArray();
@@ -58,7 +60,7 @@ class HomeController extends Controller
             }
             
         }
-        return view('front.landing',compact('hotels','appSettingsData'));
+        return view('front.landing',compact('hotels','appSettingsData','guestReviews'));
     }
 
     public function getHotelData($hotel_slug)
