@@ -13,8 +13,8 @@
     <meta name="description" content="Triumph Hotels">
     <meta name="keywords" content="Triumph Hotels">
     <meta name="author" content="Sakr">
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
-    <title>{{__('app.site_title')}} | @yield('title')</title>
+    <link rel="icon" href="{{url('../assets/images/favicon.png')}}" type="image/x-icon" />
+    <title>{{__('app.site_title')}}  @yield('title')</title>
 
     <!--Google font-->
     <link
@@ -55,9 +55,9 @@
 
 
     <!-- pre-loader start -->
-    {{-- <div class="loader-wrapper img-gif">
-        <img src="../assets/images/loader.gif" alt="">
-    </div> --}}
+    <div class="loader-wrapper img-gif">
+        <img src="{{url('../assets/images/loader.gif')}}" alt="">
+    </div>
     <!-- pre-loader end -->
 
 
