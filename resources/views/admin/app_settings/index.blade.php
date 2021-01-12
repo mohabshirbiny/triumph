@@ -43,14 +43,14 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="exampleInputEmail1">title (en)</label>
-                                                    <textarea name="landing_title[en]" class="form-control" id="" cols="30" rows="2">{{(!empty($appSettingsData['landing_title'])) ? $appSettingsData['landing_title']['en'] : ''}}</textarea>
+                                                    <textarea name="landing_title[en]" class="form-control" id="landing_title_en" cols="30" rows="2">{{(!empty($appSettingsData['landing_title'])) ? $appSettingsData['landing_title']['en'] : ''}}</textarea>
                                                     @if ($errors->has('text.en'))
                                                         <span class="text-danger">{{ $errors->first('text.en') }}</span>
                                                     @endif
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="exampleInputEmail1">title (ar)</label>
-                                                    <textarea name="landing_title[ar]" class="form-control" id="" cols="30" rows="2">{{(!empty($appSettingsData['landing_title'])) ? $appSettingsData['landing_title']['ar'] : ''}}</textarea>
+                                                    <textarea name="landing_title[ar]" class="form-control" id="landing_title_ar" cols="30" rows="2">{{(!empty($appSettingsData['landing_title'])) ? $appSettingsData['landing_title']['ar'] : ''}}</textarea>
                                                     @if ($errors->has('text.ar'))
                                                         <span class="text-danger">{{ $errors->first('text.ar') }}</span>
                                                     @endif
@@ -59,14 +59,14 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="exampleInputEmail1">Text (en)</label>
-                                                    <textarea name="landing_text[en]" class="form-control" id="" cols="30" rows="2">{{(!empty($appSettingsData['landing_text'])) ? $appSettingsData['landing_text']['en'] : ''}}</textarea>
+                                                    <textarea name="landing_text[en]" class="form-control" id="landing_text_en" cols="30" rows="2">{{(!empty($appSettingsData['landing_text'])) ? $appSettingsData['landing_text']['en'] : ''}}</textarea>
                                                     @if ($errors->has('text.en'))
                                                         <span class="text-danger">{{ $errors->first('text.en') }}</span>
                                                     @endif
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="exampleInputEmail1">Text (ar)</label>
-                                                    <textarea name="landing_text[ar]" class="form-control" id="" cols="30" rows="2">{{(!empty($appSettingsData['landing_text'])) ? $appSettingsData['landing_text']['ar'] : ''}}</textarea>
+                                                    <textarea name="landing_text[ar]" class="form-control" id="landing_text_ar" cols="30" rows="2">{{(!empty($appSettingsData['landing_text'])) ? $appSettingsData['landing_text']['ar'] : ''}}</textarea>
                                                     @if ($errors->has('text.ar'))
                                                         <span class="text-danger">{{ $errors->first('text.ar') }}</span>
                                                     @endif
@@ -81,7 +81,8 @@
                                                         <span class="text-danger">{{ $errors->first('landing_video') }}</span>
                                                     @endif
                                                 </div>
-                                                
+                                                <textarea id="tiny"></textarea>
+
                                             </div>
                                             
                                         </div>
@@ -111,50 +112,24 @@
 @endsection
 
 @section("js")
-    <script src="{{ asset('admin/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('admin/plugins/jquery-validation/additional-methods.min.js') }}"></script>
     <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/jquery.tinymce.min.js" referrerpolicy="origin"></script>
+
     <script>
-        CKEDITOR.replace( 'landing_text[en]' );
-        CKEDITOR.replace( 'landing_text[ar]' );
-</script>
+           $('textarea#tiny').tinymce({    });
+           $('textarea#landing_text_ar').tinymce({    });
+           $('textarea#landing_text_en').tinymce({    });
+           $('textarea#landing_title_ar').tinymce({    });
+           $('textarea#landing_title_en').tinymce({    });
+
+         
+    </script>
     <script type="text/javascript">
     $(document).ready(function () {
 
         
-        $('#quickForm').validate({
-            rules: {
-                article_category_id: {
-                    required: true,
-                },
-                name_en: {
-                    required: true,
-                },
-                name_ar: {
-                    required: true,
-                },
-                brief_en: {
-                    required: true,
-                },
-                brief_ar: {
-                    required: true,
-                },
-                image: {
-                    required: true,
-                },
-            },
-            errorElement: 'span',
-            errorPlacement: function (error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-            }
-        });
+         
     });
     </script>
 @endsection

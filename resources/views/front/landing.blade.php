@@ -42,7 +42,8 @@
                 <div class="app-box">
                     <div>
                          <h2 style="color: #2b2a20;"> {!!(!empty($appSettingsData['landing_title'])) ? $appSettingsData['landing_title']['en'] : ''!!}</h2>
-                        <p style="color: #2b2a20;"> {!!(!empty($appSettingsData['landing_text'])) ? $appSettingsData['landing_text']['en'] : ''!!}</p>
+                        <p style="color: #2b2a20;">{!!(!empty($appSettingsData['landing_text'])) ? $appSettingsData['landing_text']['en'] : ''!!}</p>
+                         
                             
                     </div>
                 </div>
