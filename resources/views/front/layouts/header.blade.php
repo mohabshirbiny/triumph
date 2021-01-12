@@ -120,14 +120,14 @@
                     <ul class="header-right">
                        
                         <li class="front-setting">
-                            <form id="changeLanguage" class="" action="{{url('/locale')}}" method="post">
+                            <!-- <form id="changeLanguage" class="" action="{{url('/locale')}}" method="post">
                                 @csrf
                                 <select name='locale'>
                                     <option onclick="changeLanguage()" @if (app()->getLocale() == 'en') selected @endif value="en">ENG</option>
                                     <option  onclick="changeLanguage()" @if (app()->getLocale() == 'ar') selected @endif value="ar">عربي</option>
                                 
                                 </select>
-                            </form>
+                            </form> -->
                         </li>
                         
                         

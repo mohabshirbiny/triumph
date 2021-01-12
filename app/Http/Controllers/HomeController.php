@@ -7,6 +7,7 @@ use App\Resturant;
 use App\Room;
 use App\Service;
 use App\Slider;
+use App\AppSetting;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -44,7 +45,20 @@ class HomeController extends Controller
         
         $hotels = Hotel::Where('active' ,1)->get();
 
-        return view('front.landing',compact('hotels','services'));
+
+        $appSettings = AppSetting::all()->groupby('key')->toArray();
+        
+        $appSettingsData = [];
+
+        foreach ($appSettings as $key => $value) {
+            try {
+                $appSettingsData[$key] = (unserialize( $value[0]['value']))? unserialize( $value[0]['value'] ): [];
+            } catch (\Throwable $th) {
+                throw $key;
+            }
+            
+        }
+        return view('front.landing',compact('hotels','appSettingsData'));
     }
 
     public function getHotelData($hotel_slug)

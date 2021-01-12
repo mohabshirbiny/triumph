@@ -36,18 +36,7 @@ class AppSettingController extends Controller
         }
         // dd($request->all() );
         foreach ($data as $key => $value) {
-            // $appSettings = AppSetting::where('key',$key)->first();
-            // if ($key == 'help') {
-            //     dd($appSettings->value);
-            //     $gallery = $$value->gallery;
-            //     $value_decoded = [];
-            //     if ($gallery) {
-            //         $gallery_decoded = json_decode($gallery, true);
-            //         $gallery_decoded[$request->file_type][] = $uploaded_gallery;
-            //     } else {
-            //         $gallery_decoded[$request->file_type][] = $uploaded_gallery;
-            //     }
-            // }
+            
             AppSetting::where('key',$key)->update([
                 'value' => serialize($value)
             ]);
