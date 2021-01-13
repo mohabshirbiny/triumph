@@ -147,11 +147,11 @@
         });
         $('#DateOut').datepicker({
             // uiLibrary: 'bootstrap4',
-            format: 'MM/DD/YYYY'
+            format: 'MM/DD/YY'
         });
         $('#DateIn').datepicker({
             // uiLibrary: 'bootstrap4',
-            format: 'MM/DD/YYYY'
+            format: 'MM/DD/YY'
         });
     
         function changeLanguage(params) {

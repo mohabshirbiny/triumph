@@ -19,7 +19,6 @@
                 <div class="col-xl-10 offset-xl-1">
                     <div class="search-panel" id="searchBar">
                         <div class="search-section shadow">
-                            <input type="text" name="DateOut"  id="DateOut">
                             <form  name="resform" id="resform"  action="{{$hotel->booking_url}}" method="get" target="_blank">
                                 <input type="hidden" name="HotelID" value="112895" />
                                 <input type="hidden" name="LanguageID" value="1" />
@@ -28,7 +27,7 @@
                                     <div class="left-part">
                                         <div class="search-body title-hotel">
                                             <h6>Triumph</h6>
-                                            <input type="text"  placeholder="Luxury" class="form-control ">
+                                            <input type="text"  placeholder="{{$hotel->slug}}" class="form-control ">
                                         </div>
                                         <div class="search-body">
                                             <h6>check in</h6>
