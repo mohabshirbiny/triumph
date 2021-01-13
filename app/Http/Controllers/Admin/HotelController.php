@@ -294,12 +294,17 @@ class HotelController extends Controller
             $new_gallery = [];
             $gallery_decoded = json_decode($gallery, true);
             foreach ($gallery_decoded as $type => $one_arr) {
+                // dd($type,$one_arr);
                 foreach ($one_arr as $one_value) {
-                    if ($one_value != $file_name) {
-                        $new_gallery[$type][] = $file_name;
+                     
+                    $key = array_search($file_name, $one_arr);
+                    if ($key !== false) {
+                        unset($one_arr[$key]);
                     }
                 }
+                $new_gallery[$type]=$one_arr;
             }
+            // dd($new_gallery);
             $hotels->update([
                 "gallery" => json_encode($new_gallery),
             ]);
