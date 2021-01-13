@@ -64,8 +64,8 @@
                                         </div>
                                         <div class="search-body btn-search">
                                             <div class="right-part">
+                                                <a  type="submit" target="_blank" class="btn btn-solid color1"  >Book Now</a>
                                                 
-                                                <input type="submit" class="btn btn-solid color1" value="Book Now">
                                             </div>
                                         </div>
                                     </div>
@@ -363,7 +363,7 @@
                             <div>
                                 <h5>Restaurants</h5>
                                 <p>{{ $hotel->index_page_data['restaurant_title_en'] }}</p>
-                                <h6>{{ $hotel->index_page_data['restaurant_title_en'] }} </h6>
+                                <h6>{{ $hotel->index_page_data['restaurant_text_en'] }} </h6>
                                 <a href="restaurants.html" class="btn btn-solid">read more</a>
                             </div>
                         </div>
