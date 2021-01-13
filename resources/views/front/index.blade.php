@@ -312,7 +312,7 @@
 
     <!-- video section start -->
     <section class="video-section parallax-img">
-        <img src="{{asset('assets/Triumph47.jpg')}}" alt="" class="img-fluid blur-up lazyload bg-img">
+        <img src="{{  $hotel->youtube_background_image_path }}" alt="" class="img-fluid blur-up lazyload bg-img">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -334,7 +334,7 @@
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">×</span></button>
-                    <iframe src="https://www.youtube.com/embed/HKprK9kDfEg" allowfullscreen></iframe>
+                    <iframe src="{{ $hotel->index_page_data['youtube_link'] }}" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -605,20 +605,22 @@
         <div class="container-fluid ratio_square instgram-slider">
             <div class="row">
                 <div class="col p-0">
-                    <div class="slide-6 no-arrow ">
-                        @foreach (json_decode( $hotel->gallery ,true)['index_page'] as $image )
-                            <div>
-                                <a href="{{url('images/hotel_files/'.$image)}}">
-                                    <div class="instagram-box">
-                                        <img src="{{url('images/hotel_files/'.$image)}}" alt=""
-                                            class="img-fluid blur-up lazyload bg-img">
-                                        <div class="overlay">
-                                            <i class="fab fa-instagram"></i>
+                    <div class="slide-6 no-arrow zoom-gallery">
+                        @if (json_decode( $hotel->gallery ,true))
+                            @foreach (json_decode( $hotel->gallery ,true)['index_page'] as $image )
+                                <div class="grid-item">
+                                    <a href="{{url('images/hotel_files/'.$image)}}">
+                                        <div class="instagram-box">
+                                            <img src="{{url('images/hotel_files/'.$image)}}" alt=""
+                                                class="img-fluid blur-up lazyload bg-img">
+                                            <div class="overlay">
+                                                <i class="fab fa-instagram"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </div> 
-                        @endforeach
+                                    </a>
+                                </div> 
+                            @endforeach
+                        @endif
                         
                         
                         

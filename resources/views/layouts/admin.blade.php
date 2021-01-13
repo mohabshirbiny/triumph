@@ -298,6 +298,14 @@
         
         <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
 
+        <script>
+            function ConfirmDelete() { 
+                if (confirm("are you sure ?")) {
+                    return true;
+                }
+                return false;
+            }
+        </script>
         @if (\Session::has('success_message'))
             <script>toastr.success("{{ \Session::get('success_message') }}")</script>
         @endif

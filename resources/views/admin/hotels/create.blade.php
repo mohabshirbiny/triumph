@@ -286,6 +286,20 @@
                                         </div>
                                         
                                     </div>
+                                    <div class="row">
+                                        
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">youtube background image</label>
+                                            <img style="width: 150px;" src="{{  old('youtube_background_image') }}" alt="">
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='youtube_background_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
                                     {{-- <div class="form-group">
                                         <label for="exampleInputEmail1">Icon</label>
                                         <input type="file" name="icon" class="form-control" />

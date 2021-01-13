@@ -45,7 +45,7 @@
                                                                 <img style="width: 50px;" src="{{ url('images/hotel_files/' . $record) }}" alt="">
                                                             
                                                         </td>
-                                                        <td><a class="badge bg-danger" href="{{ route("hotels.gallery.delete", [$hotel_id, $record]) }}">Delete</a></td>
+                                                        <td><a class="badge bg-danger" onclick="return ConfirmDelete();" href="{{ route("hotels.gallery.delete", [$hotel_id, $record]) }}">Delete</a></td>
                                                     </tr>
                                                     @php $counter++; @endphp
                                                 @endforeach

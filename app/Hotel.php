@@ -21,6 +21,7 @@ class Hotel extends Model
         'meet_image',
         'restaurant_image',
         'index_background_image',
+        'youtube_background_image',
         'gallery',
     ];
 
@@ -35,6 +36,7 @@ class Hotel extends Model
         'rate_image_path',
         'restaurant_image_path',
         'index_background_image_path',
+        'youtube_background_image_path',
         'index_gallery',
     ];
     
@@ -126,6 +128,12 @@ class Hotel extends Model
     public function getIndexBackgroundImagePathAttribute()
     {
         $imageUrl = url('images/hotel_files/' . $this->index_background_image);
+        // $imageUrl = url('public/images/hotel_files/' . $this->cover);
+        return $imageUrl;
+    }
+    public function getYoutubeBackgroundImagePathAttribute()
+    {
+        $imageUrl = url('images/hotel_files/' . $this->youtube_background_image);
         // $imageUrl = url('public/images/hotel_files/' . $this->cover);
         return $imageUrl;
     }

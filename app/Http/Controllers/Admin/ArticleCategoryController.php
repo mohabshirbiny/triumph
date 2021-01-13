@@ -30,7 +30,7 @@ class ArticleCategoryController extends Controller
                 $delete_link = route("article-categories.destroy", $record->id);
                 $actions = "
                     <a href='$edit_link' class='badge bg-warning'>Edit</a>
-                    <a href='$delete_link' class='badge bg-danger'>Delete</a>
+                    <a href='$delete_link' onClick='return ConfirmDelete();' class='badge bg-danger'>Delete</a>
                 ";
                 return $actions;
             })

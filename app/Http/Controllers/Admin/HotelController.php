@@ -48,7 +48,7 @@ class HotelController extends Controller
                 $actions .= "
                     <a href='$gallery' class='badge bg-primary'>Gallery</a>
                     <a href='$edit_link' class='badge bg-warning'>Edit</a>
-                    <a href='$delete_link' class='badge bg-danger delete-btn'>Delete</a>
+                    <a href='$delete_link' onClick='return ConfirmDelete();' class='badge bg-danger delete-btn'>Delete</a>
                 ";
                 return $actions;
             })
@@ -83,6 +83,7 @@ class HotelController extends Controller
             "meet_image" => "required",
             "rate_image" => "required",
             "index_background_image" => "required",
+            "youtube_background_image" => "required",
         ]);
         
 
@@ -92,6 +93,7 @@ class HotelController extends Controller
         $meet_image = $this->uploadFile($request->meet_image, 'Hotel', 'meet_image', 'image', 'hotel_files');
         $rate_image = $this->uploadFile($request->rate_image, 'Hotel', 'rate_image', 'image', 'hotel_files');
         $index_background_image = $this->uploadFile($request->index_background_image, 'Hotel', 'index_background_image', 'image', 'hotel_files');
+        $youtube_background_image = $this->uploadFile($request->youtube_background_image, 'Hotel', 'youtube_background_image', 'image', 'hotel_files');
 
         Hotel::create([
             "title"             => json_encode($request->title),
@@ -108,6 +110,7 @@ class HotelController extends Controller
             "meet_image"             => $meet_image,
             "rate_image"             => $rate_image,
             "index_background_image"             => $index_background_image,
+            "youtube_background_image"             => $youtube_background_image,
         ]);
         
         return redirect(route("hotels.index"))->with("success_message", "hotel has been stored successfully.");
@@ -182,6 +185,11 @@ class HotelController extends Controller
         if ($request->index_background_image) {
             $index_background_image = $this->uploadFile($request->index_background_image, 'Hotel', 'index_background_image', 'image', 'hotel_files');
         }
+        
+        $youtube_background_image = $hotel->youtube_background_image;
+        if ($request->youtube_background_image) {
+            $youtube_background_image = $this->uploadFile($request->youtube_background_image, 'Hotel', 'youtube_background_image', 'image', 'hotel_files');
+        }
 
         $hotel->update([
             "title" => json_encode($request->title),
@@ -199,6 +207,7 @@ class HotelController extends Controller
             "meet_image"             => $meet_image,
             "rate_image"             => $rate_image,
             "index_background_image"             => $index_background_image,
+            "youtube_background_image"             => $youtube_background_image,
         ]);
 
         return redirect(route("hotels.index"))->with("success_message", "hotel has been updated successfully.");
