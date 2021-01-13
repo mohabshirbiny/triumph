@@ -18,7 +18,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view("admin.​news​.index");
+        return view("admin.​news​_views​.index");
     }
 
     public function grid()
@@ -49,7 +49,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view("admin.​news​.create");
+        return view("admin.​news​_views​.create");
     }
 
     /**
@@ -104,7 +104,7 @@ class NewsController extends Controller
     {
     
         $​news​ = News​::find($id);
-        return view("admin.​news​.edit", compact('​news​'));
+        return view("admin.​news​_views​.edit", compact('​news​'));
     }
 
     /**
@@ -164,12 +164,12 @@ class NewsController extends Controller
             $gallery_decoded = json_decode($gallery, true);
         }
         
-        return view("admin.​news​.gallery.index", compact("news​_id", "gallery_decoded"));
+        return view("admin.​news​_views​.gallery.index", compact("news​_id", "gallery_decoded"));
     }
 
     public function createGallery($news​_id)
     {
-        return view("admin.​news​.gallery.create", compact("news​_id"));
+        return view("admin.​news​_views​.gallery.create", compact("news​_id"));
     }
 
     public function storeGallery(Request $request, $news​_id)

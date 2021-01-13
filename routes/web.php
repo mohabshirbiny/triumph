@@ -78,6 +78,7 @@ Route::group(['prefix' => 'admin','resource' => 'Admin','middleware' => 'auth'],
 
     Route::get('facilities/grid', 'Admin\FacilityController@grid')->name("facilities.grid");
     Route::resource('facilities', 'Admin\FacilityController');
+    Route::get('facilities/delete/{id}', 'Admin\FacilityController@delete')->name("facilities.delete");
 
     Route::get('hotels/grid', 'Admin\HotelController@grid')->name("hotels.grid");
     Route::get('hotels/change-active/{id}', 'Admin\HotelController@changeActive')->name("hotels.change-active");

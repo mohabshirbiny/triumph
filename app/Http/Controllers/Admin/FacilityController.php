@@ -31,7 +31,7 @@ class FacilityController extends Controller
             })
             ->addColumn("actions", function ($record) {
                 $edit_link = route("facilities.edit", $record->id);
-                $delete_link = route("facilities.destroy", $record->id);
+                $delete_link = route("facilities.delete", $record->id);
                 $actions = "
                     <a href='$edit_link' class='badge bg-warning'>Edit</a>
                     <a href='$delete_link' onClick='return ConfirmDelete();' class='badge bg-danger'>Delete</a>
@@ -134,7 +134,7 @@ class FacilityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         $facility = Facility::find($id);
         $facility->delete();

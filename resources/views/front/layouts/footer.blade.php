@@ -14,7 +14,7 @@
                             </div>
                             <p>Stay in the heart of Cairo.</p>
                             <ul class="contact-list">
-                                <li>With its prime location in one of New Cairo’s best districts, the 5th settlement</li>
+                                <li>{{$hotel->about_en}}</li>
                                 <!-- <li><i class="fas fa-phone-alt"></i> +2 24042646</li> -->
                                 <!-- <li><i class="fas fa-envelope"></i> Info@Triumphhotels.com</li> -->
                             </ul>
@@ -29,7 +29,7 @@
                         <div class="footer-content">
                             <div class="footer-links">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{url('/')}}">Home</a></li>
                                     <li><a href="about-us-2.html">about us</a></li>
                                     <li><a href="gallery.html">Media</a></li>
                                     <li><a href="shopping.html">Facilities</a></li>
@@ -62,8 +62,8 @@
                         <div class="footer-blog">
                             <div class="media">
                                 <div class="img-part">
-                                    <a href="#"><img src="{{asset('assets/thumb04.jpg')}}"
-                                            class="img-fluid blur-up lazyload" alt=""></a>
+                                    <img src="{{asset('assets/thumb04.jpg')}}"
+                                            class="img-fluid blur-up lazyload" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h5>recent news</h5>
@@ -72,8 +72,8 @@
                             </div>
                             <div class="media">
                                 <div class="img-part">
-                                    <a href=""><img src="{{asset('assets/thumb06.jpg')}}"
-                                            class="img-fluid blur-up lazyload" alt=""></a>
+                                    <img src="{{asset('assets/thumb06.jpg')}}"
+                                            class="img-fluid blur-up lazyload" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h5>recent news</h5>

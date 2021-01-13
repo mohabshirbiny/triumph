@@ -32,7 +32,7 @@
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody>d
+                                    <tbody>
                                         @php $counter = 1; @endphp
                                         @foreach ($gallery_decoded as $type => $record_arr)
                                             
