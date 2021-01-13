@@ -31,13 +31,13 @@
                                         </div>
                                         <div class="search-body">
                                             <h6>check in</h6>
-                                            <input type="text" placeholder="{{date('m/d/y')}}" name="DateIn"  id="DateIn">
+                                            <input type="text" value="{{date('m/d/y')}}" name="DateIn"  id="DateIn">
 
                                             {{-- <a href="javascript:openCalendar('DateIn')"> ss</a> --}}
                                         </div>
                                         <div class="search-body">
                                             <h6>check out</h6>
-                                            <input type="text" placeholder="{{date('m/d/y',strtotime("+1 day"))}}" name="DateOut"  id="DateOut">
+                                            <input type="text" value="{{date('m/d/y',strtotime("+1 day"))}}" name="DateOut"  id="DateOut">
 
                                             {{-- <a href="javascript:openCalendar('DateOut')"> ww</a> --}}
                                         </div>
