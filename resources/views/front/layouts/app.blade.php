@@ -140,11 +140,15 @@
         $('#DateIn').datepicker({
             uiLibrary: 'bootstrap4',
             format: 'mm/dd/yyyy',
-            startDay :'today'
+            assumeNearbyYear: true,
+            startDate:'11/11/2020',
+            minDate: 1
+
         });
         $('#DateOut').datepicker({
             uiLibrary: 'bootstrap4',
             format: 'mm/dd/yyyy',
+            minDate: 1
         });
     
         function changeLanguage(params) {

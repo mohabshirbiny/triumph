@@ -36,6 +36,7 @@ class HotelController extends Controller
                 $edit_link = route("hotels.edit", $record->id);
                 $delete_link = route("hotels.delete", $record->id);
                 $change_active = route("hotels.change-active", $record->id);
+                $gallery = route("hotels.gallery", $record->id);
                 
                 if (!$record->active) {
                     $actions .= "<a href='$change_active' class='badge bg-success'>Activate</a>";
@@ -45,6 +46,7 @@ class HotelController extends Controller
                 }
                 
                 $actions .= "
+                    <a href='$gallery' class='badge bg-primary'>Gallery</a>
                     <a href='$edit_link' class='badge bg-warning'>Edit</a>
                     <a href='$delete_link' class='badge bg-danger delete-btn'>Delete</a>
                 ";
@@ -80,6 +82,7 @@ class HotelController extends Controller
             "restaurant_image" => "required",
             "meet_image" => "required",
             "rate_image" => "required",
+            "index_background_image" => "required",
         ]);
         
 
@@ -88,6 +91,7 @@ class HotelController extends Controller
         $restaurant_image = $this->uploadFile($request->restaurant_image, 'Hotel', 'restaurant_image', 'image', 'hotel_files');
         $meet_image = $this->uploadFile($request->meet_image, 'Hotel', 'meet_image', 'image', 'hotel_files');
         $rate_image = $this->uploadFile($request->rate_image, 'Hotel', 'rate_image', 'image', 'hotel_files');
+        $index_background_image = $this->uploadFile($request->index_background_image, 'Hotel', 'index_background_image', 'image', 'hotel_files');
 
         Hotel::create([
             "title"             => json_encode($request->title),
@@ -103,6 +107,7 @@ class HotelController extends Controller
             "restaurant_image"             => $restaurant_image,
             "meet_image"             => $meet_image,
             "rate_image"             => $rate_image,
+            "index_background_image"             => $index_background_image,
         ]);
         
         return redirect(route("hotels.index"))->with("success_message", "hotel has been stored successfully.");
@@ -152,21 +157,30 @@ class HotelController extends Controller
         if ($request->logo) {
             $logo = $this->uploadFile($request->logo, 'Hotel', 'logo', 'image', 'hotel_files');
         }
+
         $cover = $hotel->cover;
         if ($request->cover) {
             $cover = $this->uploadFile($request->cover, 'Hotel', 'cover', 'image', 'hotel_files');
         }
+
         $restaurant_image = $hotel->restaurant_image;
         if ($request->restaurant_image) {
             $restaurant_image = $this->uploadFile($request->restaurant_image, 'Hotel', 'restaurant_image', 'image', 'hotel_files');
         }
-        $rate_image = $hotel->corate_imageer;
+
+        $rate_image = $hotel->rate_image;
         if ($request->rate_image) {
             $rate_image = $this->uploadFile($request->rate_image, 'Hotel', 'rate_image', 'image', 'hotel_files');
         }
+
         $meet_image = $hotel->meet_image;
         if ($request->meet_image) {
             $meet_image = $this->uploadFile($request->meet_image, 'Hotel', 'meet_image', 'image', 'hotel_files');
+        }
+
+        $index_background_image = $hotel->index_background_image;
+        if ($request->index_background_image) {
+            $index_background_image = $this->uploadFile($request->index_background_image, 'Hotel', 'index_background_image', 'image', 'hotel_files');
         }
 
         $hotel->update([
@@ -184,6 +198,7 @@ class HotelController extends Controller
             "restaurant_image"             => $restaurant_image,
             "meet_image"             => $meet_image,
             "rate_image"             => $rate_image,
+            "index_background_image"             => $index_background_image,
         ]);
 
         return redirect(route("hotels.index"))->with("success_message", "hotel has been updated successfully.");
@@ -215,5 +230,73 @@ class HotelController extends Controller
         }
         
         return redirect(route("hotels.index"))->with("success_message", "hotel has been updated successfully.");
+    }
+
+    public function gallery($hotel_id)
+    {
+        $hotel = Hotel::findOrfail($hotel_id);
+        $gallery = $hotel->gallery;
+        $gallery_decoded = [];
+        if ($gallery) {
+            $gallery_decoded = json_decode($gallery, true);
+        }
+        
+        
+        return view("admin.hotels.gallery.index", compact("hotel_id", "gallery_decoded"));
+    }
+
+    public function createGallery($hotel_id)
+    {
+        $hotel = Hotel::findOrfail($hotel_id);
+        return view("admin.hotels.gallery.create", compact("hotel"));
+    }
+
+    public function storeGallery(Request $request, $hotel_id)
+    {
+        $hotel = Hotel::findOrfail($hotel_id);
+        
+        if (in_array($request->appearance_place, ['index_page', 'gallery_page'])) {
+            $uploaded_gallery = $this->uploadFile($request->gallery, 'Hotel', 'gallery', 'image', 'hotel_files');
+        }
+
+        $gallery = $hotel->gallery;
+        $gallery_decoded = [];
+        
+        if ($gallery) {
+            $gallery_decoded = json_decode($gallery, true);
+            $gallery_decoded[$request->appearance_place][] = $uploaded_gallery;
+        } else {
+            $gallery_decoded[$request->appearance_place][] = $uploaded_gallery;
+        }
+        
+        $hotel->update([
+            "gallery" => json_encode($gallery_decoded),
+        ]);
+
+        return redirect(route("hotels.gallery", $hotel))->with("success_message", "hotels gallery has been stored successfully.");
+    }
+
+    public function deleteGallery($hotel_id, $file_name)
+    {
+        $hotels = Hotel::findOrfail($hotel_id);
+
+        $gallery = $hotels->gallery;
+        if ($gallery) {
+            $new_gallery = [];
+            $gallery_decoded = json_decode($gallery, true);
+            foreach ($gallery_decoded as $type => $one_arr) {
+                foreach ($one_arr as $one_value) {
+                    if ($one_value != $file_name) {
+                        $new_gallery[$type][] = $file_name;
+                    }
+                }
+            }
+            $hotels->update([
+                "gallery" => json_encode($new_gallery),
+            ]);
+
+            return redirect(route("hotels.gallery", $hotels))->with("success_message", "hotels gallery has been deleted successfully.");
+        }
+        return redirect(route("hotels.gallery", $hotels))->with("success_message", "hotels gallery has been deleted successfully.");
     }
 }

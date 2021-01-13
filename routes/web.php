@@ -83,6 +83,11 @@ Route::group(['prefix' => 'admin','resource' => 'Admin','middleware' => 'auth'],
     Route::get('hotels/change-active/{id}', 'Admin\HotelController@changeActive')->name("hotels.change-active");
     Route::get('hotels/delete/{id}', 'Admin\HotelController@delete')->name("hotels.delete");
     Route::resource('hotels', 'Admin\HotelController');
+    
+    Route::get('hotels/{id}/gallery', 'Admin\HotelController@gallery')->name("hotels.gallery");
+    Route::get('hotels/{id}/create-gallery', 'Admin\HotelController@createGallery')->name("hotels.gallery.create");
+    Route::post('hotels/{id}/gallery', 'Admin\HotelController@storeGallery')->name("hotels.gallery.store");
+    Route::get('hotels/{id}/gallery/{gallery}', 'Admin\HotelController@deleteGallery')->name("hotels.gallery.delete");
 
     Route::get('guest-reviews/grid', 'Admin\GuestReviewController@grid')->name("guest-reviews.grid");
     Route::resource('guest-reviews', 'Admin\GuestReviewController');

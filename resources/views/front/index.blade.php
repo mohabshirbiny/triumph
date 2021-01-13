@@ -407,7 +407,7 @@
 
     <!-- subscribe section start -->
     <section class="medium-section parallax-img subscribe-section">
-        <img src="{{asset('assets/0D7A9005.jpg')}}" class="bg-img" alt="">
+        <img src="{{  $hotel->index_background_image_path }}" class="bg-img" alt="">
         <div class="container">
             <div class="title-1">
                  <h2 class="text-white">subscribe</h2>
@@ -606,19 +606,20 @@
             <div class="row">
                 <div class="col p-0">
                     <div class="slide-6 no-arrow ">
-                        @for ($i = 0; $i < 6; $i++)
+                        @foreach (json_decode( $hotel->gallery ,true)['index_page'] as $image )
                             <div>
-                                <a href="#">
+                                <a href="{{url('images/hotel_files/'.$image)}}">
                                     <div class="instagram-box">
-                                        <img src="{{asset('assets/Triumph8.jpg')}}" alt=""
+                                        <img src="{{url('images/hotel_files/'.$image)}}" alt=""
                                             class="img-fluid blur-up lazyload bg-img">
                                         <div class="overlay">
                                             <i class="fab fa-instagram"></i>
                                         </div>
                                     </div>
                                 </a>
-                            </div>    
-                        @endfor
+                            </div> 
+                        @endforeach
+                        
                         
                         
                     </div>

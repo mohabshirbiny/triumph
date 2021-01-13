@@ -272,6 +272,16 @@
                                             <label for="exampleInputEmail1">youtube video link</label>
                                             <input type="url" name="index_page_data[youtube_link]" value='{{ $details->index_page_data['youtube_link'] }}' class="form-control" placeholder="Enter booking URL" />
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">index background image</label>
+                                            <img style="width: 150px;" src="{{  $details->index_background_image_path }}" alt="">
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='index_background_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                         
                                     </div>
 

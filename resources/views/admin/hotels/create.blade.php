@@ -186,7 +186,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputFile">Rate image</label>
-                                            <img style="width: 150px;" src="{{  old('index_page_data.rate_image') }}" alt="">
+                                            <img style="width: 150px;" src="{{  old('rate_image') }}" alt="">
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" name='rate_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
@@ -222,7 +222,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputFile">Restaurants image</label>
-                                            <img style="width: 150px;" src="{{  old('index_page_data.restaurant_image') }}" alt="">
+                                            <img style="width: 150px;" src="{{  old('restaurant_image') }}" alt="">
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" name='restaurant_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
@@ -259,7 +259,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputFile">Meet image</label>
-                                            <img style="width: 150px;" src="{{  old('index_page_data.meet_image') }}" alt="">
+                                            <img style="width: 150px;" src="{{  old('meet_image') }}" alt="">
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" name='meet_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
@@ -273,6 +273,16 @@
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">youtube video link</label>
                                             <input type="url" name="index_page_data[youtube_link]" value='{{ old('index_page_data.youtube_link') }}' class="form-control" placeholder="Enter booking URL" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">index background image</label>
+                                            <img style="width: 150px;" src="{{  old('index_background_image') }}" alt="">
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='index_background_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
                                         </div>
                                         
                                     </div>

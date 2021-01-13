@@ -20,6 +20,8 @@ class Hotel extends Model
         'rate_image',
         'meet_image',
         'restaurant_image',
+        'index_background_image',
+        'gallery',
     ];
 
     protected $appends = [
@@ -32,6 +34,8 @@ class Hotel extends Model
         'meet_image_path',
         'rate_image_path',
         'restaurant_image_path',
+        'index_background_image_path',
+        'index_gallery',
     ];
     
     
@@ -84,6 +88,10 @@ class Hotel extends Model
     {
         return json_decode($value, true);
     }
+    public function getIndexGalleryAttribute($value)
+    {
+        return json_decode($value, true);
+    }
 
     public function getLogoPathAttribute()
     {
@@ -112,6 +120,12 @@ class Hotel extends Model
     public function getRestaurantImagePathAttribute()
     {
         $imageUrl = url('images/hotel_files/' . $this->restaurant_image);
+        // $imageUrl = url('public/images/hotel_files/' . $this->cover);
+        return $imageUrl;
+    }
+    public function getIndexBackgroundImagePathAttribute()
+    {
+        $imageUrl = url('images/hotel_files/' . $this->index_background_image);
         // $imageUrl = url('public/images/hotel_files/' . $this->cover);
         return $imageUrl;
     }
