@@ -89,17 +89,17 @@
                 <div class="col-lg-6">
                     <div class="about_img">
                         <div class="side-effect"><span></span></div>
-                        <img src="{{asset('assets/panel2.jpg')}}" class="img-fluid blur-up lazyload" alt="">
+                        <img src="{{ $hotel->rate_image_path}}" class="img-fluid blur-up lazyload" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about_content">
                         <div>
                             <h5>stay in the heart of cairo </h5>
-                            <h2 style="color: #9a8348;" >Triumph Luxury Hotel</h2>
-                            <p style="color: #606060;">Contemporary designs, elegant interiors, and perfect location! Triumph Luxury Hotel is ideal for families, couples & business travelers alike. With its prime location in one of New Cairo’s best districts, the 5th settlement, the hotel is just a few minutes away from the business district, top shopping venues, and some of the best night spots in town. The hotel also lies in close proximity to Cairo International Airport. Triumph Luxury Hotel offers you the ultimate hospitality experience you can wish for, in a warm & friendly manner.</p>
+                            <h2 style="color: #9a8348;" >{{ $hotel->index_page_data['rate_title_en'] }}</h2>
+                            <p style="color: #606060;">{{ $hotel->index_page_data['rate_text_en'] }}</p>
                             <div class="about_bottom">
-                                <a href="mailto:Info@Triumphhotels.com" class="btn btn-rounded btn-sm color1">E-mail</a>
+                                <a href="mailto:{{ $hotel->email}}" class="btn btn-rounded btn-sm color1">E-mail</a>
                              </div>
                         </div>
                     </div>
@@ -349,7 +349,7 @@
                     <div class="blog-box">
                         <div class="img-part">
                             <div>
-                                <img src="{{asset('assets/thumb_dining.jpg')}}" class="img-fluid blur-up lazyload w-100"
+                                <img src="{{$hotel->restaurant_image_path}}" class="img-fluid blur-up lazyload w-100"
                                     alt="">
                             </div>
                             <!-- <div class="blog-date">
@@ -362,8 +362,8 @@
                         <div class="blog-content">
                             <div>
                                 <h5>Restaurants</h5>
-                                <p>Indulge Your Taste Palette</p>
-                                <h6>At Triumph Luxury Hotel, you will experience a culinary experience like no other! Gastronomic creativity is part of our food culture; whether you want to grab a casual cup of freshly brewed coffee at Oasis lobby lounge, or a family brunch at Pavilion restaurant, or an Al Fresco Italian dinner at Piccolino restaurant ..<br></br></h6>
+                                <p>{{ $hotel->index_page_data['restaurant_title_en'] }}</p>
+                                <h6>{{ $hotel->index_page_data['restaurant_title_en'] }} </h6>
                                 <a href="restaurants.html" class="btn btn-solid">read more</a>
                             </div>
                         </div>
@@ -373,7 +373,7 @@
                     <div class="blog-box">
                         <div class="img-part">
                             <div>
-                                <img src="{{asset('assets/thumb_meet.jpg')}}" class="img-fluid blur-up lazyload w-100"
+                                <img src="{{$hotel->meet_image_path}}" class="img-fluid blur-up lazyload w-100"
                                     alt="">
                             </div>
                            <!-- <div class="blog-date">
@@ -386,8 +386,8 @@
                         <div class="blog-content">
                             <div>
                                 <h5>Meet & Celebrate</h5>
-                                <p>When Business Meets Luxury</p>
-                                <h6>Meet Our 18 flexible exhibition, conference, banqueting, and meeting suites, each equipped with the very latest audiovisual and lighting technology, as well as our quality catering options will ensure that your upcoming business meetings and corporate events will be a great success ..<br></br></h6>
+                                <p>{{ $hotel->index_page_data['meet_title_en'] }}</p>
+                                <h6>{{ $hotel->index_page_data['meet_text_en'] }}</h6>
                                 <a href="meet.html" class="btn btn-solid">read more</a>
                             </div>
                         </div>

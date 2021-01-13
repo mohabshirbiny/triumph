@@ -157,6 +157,125 @@
                                             </div>
                                         </div>                                        
                                     </div>
+                                    <hr>
+                                    <br>
+                                    <h2>Index page data</h2>
+                                    <br>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Rate title ar</label>
+                                            <input type="text" name="index_page_data[rate_title_ar]" value='{{ old('index_page_data.rate_title_ar') }}' class="form-control" placeholder="Enter instagram" />                                            
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Rate title en</label>
+                                            <input type="text" name="index_page_data[rate_title_en]" value='{{ old('index_page_data.rate_title_en') }}' class="form-control" placeholder="Enter youtube" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Rate text (ar)</label>
+                                            <textarea name="index_page_data[rate_text_ar]" class="form-control" id="" cols="30" rows="2">{{ old('index_page_data.rate_text_en') }}</textarea>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Rate text (en)</label>
+                                            <textarea name="index_page_data[rate_text_en]" class="form-control" id="" cols="30" rows="2">{{ old('index_page_data.rate_text_en') }}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">Rate image</label>
+                                            <img style="width: 150px;" src="{{  old('index_page_data.rate_image') }}" alt="">
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='rate_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                                           
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Restaurants title ar</label>
+                                            <input type="text" name="index_page_data[restaurant_title_ar]" value='{{ old('index_page_data.restaurant_title_ar') }}' class="form-control" placeholder="Enter instagram" />                                            
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Restaurants title en</label>
+                                            <input type="text" name="index_page_data[restaurant_title_en]" value='{{ old('index_page_data.restaurant_title_en') }}' class="form-control" placeholder="Enter youtube" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Restaurants text (ar)</label>
+                                            <textarea name="index_page_data[restaurant_text_ar]" class="form-control" id="" cols="30" rows="2">{{ old('index_page_data.restaurant_text_en') }}</textarea>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Restaurants text (en)</label>
+                                            <textarea name="index_page_data[restaurant_text_en]" class="form-control" id="" cols="30" rows="2">{{ old('index_page_data.restaurant_text_en') }}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">Restaurants image</label>
+                                            <img style="width: 150px;" src="{{  old('index_page_data.restaurant_image') }}" alt="">
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='restaurant_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                                           
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Meet title ar</label>
+                                            <input type="text" name="index_page_data[meet_title_ar]" value='{{ old('index_page_data.meet_title_ar') }}' class="form-control" placeholder="Enter instagram" />                                            
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Meet title en</label>
+                                            <input type="text" name="index_page_data[meet_title_en]" value='{{ old('index_page_dat.meet_title_en') }}' class="form-control" placeholder="Enter youtube" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Meet text (ar)</label>
+                                            <textarea name="index_page_data[meet_text_ar]" class="form-control" id="" cols="30" rows="2">{{ old('index_page_data.meet_text_en') }}</textarea>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Meet text (en)</label>
+                                            <textarea name="index_page_data[meet_text_en]" class="form-control" id="" cols="30" rows="2">{{ old('index_page_data.meet_text_en') }}</textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">Meet image</label>
+                                            <img style="width: 150px;" src="{{  old('index_page_data.meet_image') }}" alt="">
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='meet_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                                           
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">youtube video link</label>
+                                            <input type="url" name="index_page_data[youtube_link]" value='{{ old('index_page_data.youtube_link') }}' class="form-control" placeholder="Enter booking URL" />
+                                        </div>
+                                        
+                                    </div>
                                     {{-- <div class="form-group">
                                         <label for="exampleInputEmail1">Icon</label>
                                         <input type="file" name="icon" class="form-control" />

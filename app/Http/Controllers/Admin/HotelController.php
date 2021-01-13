@@ -77,11 +77,17 @@ class HotelController extends Controller
             "slug" => "required|unique:hotels,slug",
             "logo" => "required",
             "cover" => "required",
+            "restaurant_image" => "required",
+            "meet_image" => "required",
+            "rate_image" => "required",
         ]);
         
 
         $logo = $this->uploadFile($request->logo, 'Hotel', 'logo', 'image', 'hotel_files');
         $cover = $this->uploadFile($request->cover, 'Hotel', 'cover', 'image', 'hotel_files');
+        $restaurant_image = $this->uploadFile($request->restaurant_image, 'Hotel', 'restaurant_image', 'image', 'hotel_files');
+        $meet_image = $this->uploadFile($request->meet_image, 'Hotel', 'meet_image', 'image', 'hotel_files');
+        $rate_image = $this->uploadFile($request->rate_image, 'Hotel', 'rate_image', 'image', 'hotel_files');
 
         Hotel::create([
             "title"             => json_encode($request->title),
@@ -91,8 +97,12 @@ class HotelController extends Controller
             "booking_url"       => $request->booking_url,
             "social_media"      => json_encode($request->social_media),
             "contact_details"   => json_encode($request->contact_details),
+            "index_page_data"   => json_encode($request->index_page_data),
             "logo"              => $logo,
             "cover"             => $cover,
+            "restaurant_image"             => $restaurant_image,
+            "meet_image"             => $meet_image,
+            "rate_image"             => $rate_image,
         ]);
         
         return redirect(route("hotels.index"))->with("success_message", "hotel has been stored successfully.");
@@ -130,7 +140,7 @@ class HotelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
         $this->validate($request, [
             "title.en" => "required",
             "title.ar" => "required",
@@ -146,6 +156,18 @@ class HotelController extends Controller
         if ($request->cover) {
             $cover = $this->uploadFile($request->cover, 'Hotel', 'cover', 'image', 'hotel_files');
         }
+        $restaurant_image = $hotel->restaurant_image;
+        if ($request->restaurant_image) {
+            $restaurant_image = $this->uploadFile($request->restaurant_image, 'Hotel', 'restaurant_image', 'image', 'hotel_files');
+        }
+        $rate_image = $hotel->corate_imageer;
+        if ($request->rate_image) {
+            $rate_image = $this->uploadFile($request->rate_image, 'Hotel', 'rate_image', 'image', 'hotel_files');
+        }
+        $meet_image = $hotel->meet_image;
+        if ($request->meet_image) {
+            $meet_image = $this->uploadFile($request->meet_image, 'Hotel', 'meet_image', 'image', 'hotel_files');
+        }
 
         $hotel->update([
             "title" => json_encode($request->title),
@@ -156,8 +178,12 @@ class HotelController extends Controller
             "booking_url"       => $request->booking_url,
             "social_media"      => json_encode($request->social_media),
             "contact_details"   => json_encode($request->contact_details),
+            "index_page_data"   => json_encode($request->index_page_data),
             "logo"              => $logo,
             "cover"             => $cover,
+            "restaurant_image"             => $restaurant_image,
+            "meet_image"             => $meet_image,
+            "rate_image"             => $rate_image,
         ]);
 
         return redirect(route("hotels.index"))->with("success_message", "hotel has been updated successfully.");

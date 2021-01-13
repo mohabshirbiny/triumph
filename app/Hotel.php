@@ -10,12 +10,16 @@ class Hotel extends Model
         'title',
         'contact_details',
         'social_media',
+        'index_page_data',
         'about',
         'slug',
         'booking_url',
         'active',
         'cover',
         'logo',
+        'rate_image',
+        'meet_image',
+        'restaurant_image',
     ];
 
     protected $appends = [
@@ -25,6 +29,9 @@ class Hotel extends Model
         'about_ar',
         'logo_path',
         'cover_path',
+        'meet_image_path',
+        'rate_image_path',
+        'restaurant_image_path',
     ];
     
     
@@ -73,6 +80,11 @@ class Hotel extends Model
         return json_decode($value, true);
     }
 
+    public function getIndexPageDataAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
     public function getLogoPathAttribute()
     {
         $imageUrl = url('images/hotel_files/' . $this->logo);
@@ -85,5 +97,24 @@ class Hotel extends Model
         // $imageUrl = url('public/images/hotel_files/' . $this->cover);
         return $imageUrl;
     }
+    public function getRateImagePathAttribute()
+    {
+        $imageUrl = url('images/hotel_files/' . $this->rate_image);
+        // $imageUrl = url('public/images/hotel_files/' . $this->cover);
+        return $imageUrl;
+    }
+    public function getMeetImagePathAttribute()
+    {
+        $imageUrl = url('images/hotel_files/' . $this->meet_image);
+        // $imageUrl = url('public/images/hotel_files/' . $this->cover);
+        return $imageUrl;
+    }
+    public function getRestaurantImagePathAttribute()
+    {
+        $imageUrl = url('images/hotel_files/' . $this->restaurant_image);
+        // $imageUrl = url('public/images/hotel_files/' . $this->cover);
+        return $imageUrl;
+    }
+    
 
 }
