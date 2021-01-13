@@ -137,21 +137,14 @@
     <script src="{{asset('assets/js/jquery.vide.min.js')}}"></script>
 
     <script>
-        $('#datepicker').datepicker({
+        $('#DateIn').datepicker({
             uiLibrary: 'bootstrap4',
-            format: 'MM/DD/YYYY'
-        });
-        $('#datepicker1').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'MM/DD/YYYY'
+            format: 'mm/dd/yyyy',
+            startDay :'today'
         });
         $('#DateOut').datepicker({
-            // uiLibrary: 'bootstrap4',
-            format: 'MM/DD/YY'
-        });
-        $('#DateIn').datepicker({
-            // uiLibrary: 'bootstrap4',
-            format: 'MM/DD/YY'
+            uiLibrary: 'bootstrap4',
+            format: 'mm/dd/yyyy',
         });
     
         function changeLanguage(params) {

@@ -31,16 +31,17 @@
                                         </div>
                                         <div class="search-body">
                                             <h6>check in</h6>
-                                            <input type="text" name="DateIn"  id="DateIn">
+                                            <input type="text" placeholder="{{date('m/d/y')}}" name="DateIn"  id="DateIn">
 
                                             {{-- <a href="javascript:openCalendar('DateIn')"> ss</a> --}}
                                         </div>
                                         <div class="search-body">
                                             <h6>check out</h6>
-                                            <input type="text" name="DateOut"  id="DateOut">
+                                            <input type="text" placeholder="{{date('m/d/y',strtotime("+1 day"))}}" name="DateOut"  id="DateOut">
 
                                             {{-- <a href="javascript:openCalendar('DateOut')"> ww</a> --}}
                                         </div>
+                                        
                                         <div class="search-body">
                                             <h6>guests</h6>
                                             <div class="qty-box">
@@ -64,8 +65,8 @@
                                         </div>
                                         <div class="search-body btn-search">
                                             <div class="right-part">
-                                                <a  type="submit" target="_blank" class="btn btn-solid color1"  >Book Now</a>
                                                 
+                                                <input type="submit" class="btn btn-solid color1" value="Book Now">
                                             </div>
                                         </div>
                                     </div>
