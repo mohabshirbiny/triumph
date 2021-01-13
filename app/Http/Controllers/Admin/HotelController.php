@@ -173,7 +173,7 @@ class HotelController extends Controller
     {
         $hotel = Hotel::findOrfail($id);
         // dd($hotel);
-        // $hotel->delete();
+        $hotel->delete();
 
         return redirect(route("hotels.index"))->with("success_message", "hotel has been deleted successfully.");
     }

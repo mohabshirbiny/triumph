@@ -1,6 +1,14 @@
 @extends('front.layouts.app')
 
 @section('content')
+<script language="javascript" type="text/javascript">
+    function openCalendar(FormElement){
+        var calendarwindow;
+        url = "calendar.html?formname=resform&formelement=" + FormElement;
+        calendarwindow = window.open(url,"calendar","toolbar=no,width=200,height=144,top=50,left=50,status=no,scrollbars=no,resize=no,menubar=no");
+        calendarwindow.focus();
+    }
+    </script>
     <!-- home section start -->
     @include('front.layouts.slider')
     <!-- home section end -->
@@ -11,48 +19,59 @@
                 <div class="col-xl-10 offset-xl-1">
                     <div class="search-panel" id="searchBar">
                         <div class="search-section shadow">
-                            <div class="search-box">
-                                <div class="left-part">
-                                    <div class="search-body title-hotel">
-                                        <h6>Triumph</h6>
-                                        <input type="text" name="text" placeholder="Luxury" class="form-control ">
-                                    </div>
-                                    <div class="search-body">
-                                        <h6>check in</h6>
-                                        <input placeholder="18 april" id="datepicker" />
-                                    </div>
-                                    <div class="search-body">
-                                        <h6>check out</h6>
-                                        <input placeholder="20 april" id="datepicker1" />
-                                    </div>
-                                    <div class="search-body">
-                                        <h6>guests</h6>
-                                        <div class="qty-box">
-                                            <div class="input-group">
-                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-left-minus"
-                                                        data-type="minus" data-field="">
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </button>
-                                                </span>
-                                                <input type="text" name="quantity" class="form-control input-number"
-                                                    value="1">
-                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-right-plus"
-                                                        data-type="plus" data-field="">
-                                                        <i class="fas fa-chevron-up"></i>
-                                                    </button>
-                                                </span>
+                            <input type="text" name="DateOut"  id="DateOut">
+                            <form  name="resform" id="resform"  action="{{$hotel->booking_url}}" method="get" target="_blank">
+                                <input type="hidden" name="HotelID" value="112895" />
+                                <input type="hidden" name="LanguageID" value="1" />
+                                <input type="hidden" name="Rooms" value="1" />
+                                <div class="search-box">
+                                    <div class="left-part">
+                                        <div class="search-body title-hotel">
+                                            <h6>Triumph</h6>
+                                            <input type="text"  placeholder="Luxury" class="form-control ">
+                                        </div>
+                                        <div class="search-body">
+                                            <h6>check in</h6>
+                                            <input type="text" name="DateIn"  id="DateIn">
+
+                                            {{-- <a href="javascript:openCalendar('DateIn')"> ss</a> --}}
+                                        </div>
+                                        <div class="search-body">
+                                            <h6>check out</h6>
+                                            <input type="text" name="DateOut"  id="DateOut">
+
+                                            {{-- <a href="javascript:openCalendar('DateOut')"> ww</a> --}}
+                                        </div>
+                                        <div class="search-body">
+                                            <h6>guests</h6>
+                                            <div class="qty-box">
+                                                <div class="input-group">
+                                                    <span class="input-group-prepend">
+                                                        <button type="button" class="btn quantity-left-minus"
+                                                            data-type="minus" data-field="">
+                                                            <i class="fas fa-chevron-down"></i>
+                                                        </button>
+                                                    </span>
+                                                    <input type="text" name="Adults"  class="form-control input-number"
+                                                        value="1">
+                                                    <span class="input-group-prepend">
+                                                        <button type="button" class="btn quantity-right-plus"
+                                                            data-type="plus" data-field="">
+                                                            <i class="fas fa-chevron-up"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="search-body btn-search">
+                                            <div class="right-part">
+                                                
+                                                <input type="submit" class="btn btn-solid color1" value="Book Now">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="search-body btn-search">
-                                        <div class="right-part">
-                                            <a href="#" class="btn btn-solid color1">Book Now</a>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

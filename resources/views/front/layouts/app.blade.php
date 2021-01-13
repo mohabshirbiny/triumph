@@ -55,9 +55,9 @@
 
 
     <!-- pre-loader start -->
-    <div class="loader-wrapper img-gif">
+    {{-- <div class="loader-wrapper img-gif">
         <img src="{{url('/assets/triumph-logo.png')}}" alt="">
-    </div>
+    </div> --}}
     <!-- pre-loader end -->
 
 
@@ -139,11 +139,19 @@
     <script>
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap4',
-            format: 'dd mmmm'
+            format: 'MM/DD/YYYY'
         });
         $('#datepicker1').datepicker({
             uiLibrary: 'bootstrap4',
-            format: 'dd mmmm'
+            format: 'MM/DD/YYYY'
+        });
+        $('#DateOut').datepicker({
+            // uiLibrary: 'bootstrap4',
+            format: 'MM/DD/YYYY'
+        });
+        $('#DateIn').datepicker({
+            // uiLibrary: 'bootstrap4',
+            format: 'MM/DD/YYYY'
         });
     
         function changeLanguage(params) {

@@ -132,7 +132,7 @@
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12">
                     <div class="copy-right">
-                        <p>copyright 2020 Triumph Hotels</p>
+                        <p>copyright {{date("Y")}} Triumph Hotels</p>
                     </div>
                 </div>
             </div>

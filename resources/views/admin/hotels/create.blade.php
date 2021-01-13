@@ -121,6 +121,12 @@
                                             <input type="url" name="contact_details[location_url]" value='{{old('contact_details.location_url')}}' class="form-control" placeholder="Enter location URL" />
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">location URL Map</label>
+                                            <input type="url" name="contact_details[location_url_map]" value='{{old('contact_details.location_url_map')}}' class="form-control" placeholder="Enter location URL Map" />
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         
