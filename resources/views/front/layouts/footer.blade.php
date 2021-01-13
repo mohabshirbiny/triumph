@@ -48,7 +48,7 @@
                     <div class="footer-content">
                         <div class="footer-map">
                             <iframe
-                                src="{{$hotel->contact_details['location_url']}}"
+                                src="{{$hotel->contact_details['location_url_map']}}"
                                 allowfullscreen></iframe>
                         </div>
                     </div>
