@@ -1,5 +1,5 @@
 @extends("layouts.admin")
-@section("page_title", "rooms")
+@section("page_title", "restaurants")
 @section('css')
 @endsection
 @section("content")
@@ -22,7 +22,7 @@
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">edit room</h3>
+                                <h3 class="card-title">edit restaurant</h3>
                             </div>
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
@@ -36,7 +36,7 @@
 
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form" id="quickForm" method="post" action="{{ route('rooms.update', $room->id) }}" enctype="multipart/form-data">
+                            <form role="form" id="quickForm" method="post" action="{{ route('restaurants.update', $restaurant->id) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="card-body">
@@ -46,7 +46,7 @@
                                         <select name="hotel_id" class="form-control">
                                             <option value="">Select Hotel</option>
                                             @foreach ($hotels as $hotel)
-                                                <option value="{{ $hotel->id }}" @if($room->hotel_id == $hotel->id) selected @endif>{{ json_decode($hotel->title, true)['en'] . " - " . json_decode($hotel->title, true)['ar'] }}</option>
+                                                <option value="{{ $hotel->id }}" @if($restaurant->hotel_id == $hotel->id) selected @endif>{{ json_decode($hotel->title, true)['en'] . " - " . json_decode($hotel->title, true)['ar'] }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -54,11 +54,11 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">Title  [ar]</label>
-                                            <input type="text" name="title[ar]" value='{{$room->title_ar}}' class="form-control" placeholder="Enter title" />                                            
+                                            <input type="text" name="title[ar]" value='{{$restaurant->title_ar}}' class="form-control" placeholder="Enter title" />                                            
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">Title  [en]</label>
-                                            <input type="text" name="title[en]" value='{{$room->title_en}}' class="form-control" placeholder="Enter title" />
+                                            <input type="text" name="title[en]" value='{{$restaurant->title_en}}' class="form-control" placeholder="Enter title" />
                                         </div>
                                     </div>
 
@@ -66,11 +66,11 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">description (ar)</label>
-                                            <textarea name="desc[ar]" class="form-control" id="" cols="30" rows="2">{{$room->about_en}}</textarea>
+                                            <textarea name="desc[ar]" class="form-control" id="" cols="30" rows="2">{{$restaurant->about_en}}</textarea>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">description (en)</label>
-                                            <textarea name="desc[en]" class="form-control" id="" cols="30" rows="2">{{$room->about_en}}</textarea>
+                                            <textarea name="desc[en]" class="form-control" id="" cols="30" rows="2">{{$restaurant->about_en}}</textarea>
                                         </div>
                                     </div>
 
@@ -79,7 +79,7 @@
                                             <label for="exampleInputEmail1">Facilities</label>
                                             <select name="facilities[]" class="select2" data-placeholder="Select a developer" style="width: 100%;" multiple>
                                                 @foreach ($facilities as $facility)
-                                                    <option value="{{ $facility->id }}">{{ json_decode($facility->name, true)['en'] . " - " . json_decode($facility->name, true)['ar'] }}</option>
+                                                    <option @if ($facilities->contains('id', $facility->id)) selected @endif value="{{ $facility->id }}">{{ json_decode($facility->name, true)['en'] . " - " . json_decode($facility->name, true)['ar'] }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -87,7 +87,7 @@
                                     </div>
                                     
 
-                                    <img style='max-width: 100px;min-width: 100px;' src="{{$room->image_path}}">
+                                    <img style='max-width: 100px;min-width: 100px;' src="{{$restaurant->image_path}}">
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputFile">Image</label>
@@ -100,7 +100,60 @@
                                         </div>
                                                                          
                                     </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputFile">PDF file</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='image' class="custom-file-input" id="exampleInputFile" accept="pdf/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                                         
+                                    </div>
+                                
+
+                                <hr>
+                                
+                                <h2>Box 1</h2>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleInputEmail1">Title  [ar]</label>
+                                        <input type="text" name="title[ar]" value='{{$restaurant->title_ar}}' class="form-control" placeholder="Enter title" />                                            
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleInputEmail1">Title  [en]</label>
+                                        <input type="text" name="title[en]" value='{{$restaurant->title_en}}' class="form-control" placeholder="Enter title" />
+                                    </div>
                                 </div>
+
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleInputEmail1">description (ar)</label>
+                                        <textarea name="desc[ar]" class="form-control" id="" cols="30" rows="2">{{$restaurant->about_en}}</textarea>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleInputEmail1">description (en)</label>
+                                        <textarea name="desc[en]" class="form-control" id="" cols="30" rows="2">{{$restaurant->about_en}}</textarea>
+                                    </div>
+                                </div>
+
+                                <img style='max-width: 100px;min-width: 100px;' src="{{$restaurant->image_path}}">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleInputFile">Image</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" name='image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                     
+                                </div>
+                            </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -126,7 +179,7 @@
     <script src="{{ asset('admin_assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
     <script type="text/javascript">
     $(document).ready(function () {
-        ('.select2').select2();
+        $('.select2').select2();
 
         $('#quickForm').validate({
             rules: {

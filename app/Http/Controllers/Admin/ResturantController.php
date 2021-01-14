@@ -26,7 +26,7 @@ class ResturantController extends Controller
      */
     public function index()
     {
-        return view("admin.resturants.index");
+        return view("admin.restaurants.index");
     }
 
     public function grid()
@@ -67,7 +67,7 @@ class ResturantController extends Controller
     {
         $hotels = Hotel::all();
         $facilities = Facility::all();
-        return view('admin.resturants.create',compact('hotels','facilities'));
+        return view('admin.restaurants.create',compact('hotels','facilities'));
 
     }
     
@@ -100,7 +100,7 @@ class ResturantController extends Controller
         ]);
         
         // dd('ff');
-        return redirect(route("resturants.index"))->with("success_message", "Resturant has been stored successfully.");
+        return redirect(route("restaurants.index"))->with("success_message", "Resturant has been stored successfully.");
 
         
     }
@@ -116,10 +116,10 @@ class ResturantController extends Controller
     {
 
 
-        $resturant = Resturant::findOrFail($id);
+        $restaurant = Resturant::findOrFail($id);
         $hotels = Hotel::all();
         $facilities = Facility::all();
-        return view('admin.resturant.edit',compact('resturant','hotels','facilities' ));
+        return view('admin.restaurants.edit',compact('restaurant','hotels','facilities' ));
 
     }
 
