@@ -18,7 +18,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view("admin.​news​_views​.index");
+        return view("admin.​news​_views​.create");
     }
 
     public function grid()

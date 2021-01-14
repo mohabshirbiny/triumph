@@ -121,189 +121,31 @@
                 <h2 style="color: #9a8348;">Rooms</h2>
             </div>
             <div class="slide-3 arrow-classic">
-                <div>
-                    <div class="special-box p-0">
-                        <div class="special-img">
-                            <a href="classic_room.html">
-                                <img src="../assets/images/rooms_types_sml/Classic-Rooms.jpg" class="img-fluid blur-up lazyload bg-img"
-                                    alt="">
-                            </a>
-                            <!-- <div class="label">
-                                <i class="fas fa-percent"></i>
-                                <h3><del>$24</del> $20</h3>
-                            </div> -->
-                        </div>
-                        <div class="special-content" style="text-align: center;">
-                            <a href="#">
-                                <h5>Classic Rooms </h5>
-                            </a>
-                            <p>
-                                With pool view
-                            </p>
-                            <a style="background: white;color: #9a8348;border-color: #9a8348;" href="classic_room.html" class="btn btn-curve">find out more</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="special-box p-0">
-                        <div class="special-img">
-                            <a href="classic_room.html">
-                                <img src="../assets/images/rooms_types_sml/Pool-Twin-Rooms.jpg" class="img-fluid blur-up lazyload bg-img"
-                                    alt="">
-                            </a>
-                            <!-- <div class="label">
-                                <i class="fas fa-percent"></i>
-                                <h3><del>$24</del> $20</h3>
-                            </div> -->
-                        </div>
-                        <div class="special-content" style="text-align: center;">
-                            <a href="#">
-                                <h5>Pool Twin Rooms </h5>
-                            </a>
-                            <p>With pool view</p>
-                            <a style="background: white;color: #9a8348;border-color: #9a8348;" href="classic_room.html" class="btn btn-curve">find out more</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="special-box p-0">
-                        <div class="special-img">
-                            <a href="classic_room.html">
-                                <img src="../assets/images/rooms_types_sml/Executive-Rooms-with-Pool-or-Garden-view.jpg" class="img-fluid blur-up lazyload bg-img"
-                                    alt="">
-                            </a>
-                            <!-- <div class="label">
-                                <i class="fas fa-percent"></i>
-                                <h3><del>$24</del> $20</h3>
-                            </div> -->
-                        </div>
-                        <div class="special-content" style="text-align: center;">
-                            <a href="#">
-                                <h5>Executive Rooms with Pool or Garden view </h5>
-                            </a>
-                            <p>
-                                With pool view    
-                            </p>
-                            <a style="background: white;color: #9a8348;border-color: #9a8348;" href="classic_room.html" class="btn btn-curve">find out more</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="special-box p-0">
-                        <div class="special-img">
-                            <a href="classic_room.html">
-                                <img src="../assets/images/rooms_types_sml/Deluxe-Rooms.jpg" class="img-fluid blur-up lazyload bg-img"
-                                    alt="">
-                            </a>
-                            <!-- <div class="label">
-                                <i class="fas fa-percent"></i>
-                                <h3><del>$24</del> $20</h3>
-                            </div> -->
-                        </div>
-                        <div class="special-content" style="text-align: center;">
-                            <a href="#">
-                                <h5> Deluxe Rooms</h5>
-                            </a>
-                            <p>
-                                With pool view
-                            </p>
-                            <a style="background: white;color: #9a8348;border-color: #9a8348;" href="classic_room.html" class="btn btn-curve">find out more</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="special-box p-0">
-                        <div class="special-img">
-                            <a href="classic_room.html">
-                                <img src="../assets/images/rooms_types_sml/Superior-Rooms.jpg" class="img-fluid blur-up lazyload bg-img"
-                                    alt="">
-                            </a>
-                            <!-- <div class="label">
-                                <i class="fas fa-percent"></i>
-                                <h3><del>$24</del> $20</h3>
-                            </div> -->
-                        </div>
-                        <div class="special-content" style="text-align: center;">
-                            <a href="#">
-                                <h5> Superior Rooms </h5>
-                            </a>
-                            <p>
-                                With pool view
-                            </p>
-                            <a style="background: white;color: #9a8348;border-color: #9a8348;" href="classic_room.html" class="btn btn-curve">find out more</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="special-box p-0">
-                        <div class="special-img">
-                            <a href="classic_room.html">
-                                <img src="../assets/images/rooms_types_sml/Junior-Suites.jpg" class="img-fluid blur-up lazyload bg-img"
-                                    alt="">
-                            </a>
-                            <!-- <div class="label">
-                                <i class="fas fa-percent"></i>
-                                <h3><del>$24</del> $20</h3>
-                            </div> -->
-                        </div>
-                        <div class="special-content" style="text-align: center;">
-                            <a href="#">
-                                <h5>Junior Suites </h5>
-                            </a>
-                            <p>
-                                With pool view
-                            </p>
-                            <a style="background: white;color: #9a8348;border-color: #9a8348;" href="classic_room.html" class="btn btn-curve">find out more</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="special-box p-0">
-                        <div class="special-img">
-                            <a href="classic_room.html">
-                                <img src="../assets/images/rooms_types_sml/Junior-Suite-With-Balcony.jpg" class="img-fluid blur-up lazyload bg-img"
-                                    alt="">
-                            </a>
-                            <!-- <div class="label">
-                                <i class="fas fa-percent"></i>
-                                <h3><del>$24</del> $20</h3>
-                            </div> -->
-                        </div>
-                        <div class="special-content" style="text-align: center;">
-                            <a href="#">
-                                <h5>Junior Suite With Balcony </h5>
-                            </a>
-                            <p>
-                                With pool view
-                            </p>
-                            <a style="background: white;color: #9a8348;border-color: #9a8348;" href="classic_room.html" class="btn btn-curve">find out more</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="special-box p-0">
-                        <div class="special-img">
-                            <a href="classic_room.html">
-                                <img src="../assets/images/rooms_types_sml/Family-Rooms.jpg" class="img-fluid blur-up lazyload bg-img"
-                                    alt="">
-                            </a>
-                            <!-- <div class="label">
-                                <i class="fas fa-percent"></i>
-                                <h3><del>$24</del> $20</h3>
-                            </div> -->
-                        </div>
-                        <div class="special-content" style="text-align: center;">
-                            <a href="#">
-                                <h5>Family Rooms </h5>
-                            </a>
-                            <p>
-                                With pool view
-                            </p>
-                            <a style="background: white;color: #9a8348;border-color: #9a8348; " href="classic_room.html" class="btn btn-curve">find out more</a>
-                        </div>
-                    </div>
-                </div>
+                @foreach ($hotel->rooms() as $room)
+                    
                 
+                    <div>
+                        <div class="special-box p-0">
+                            <div class="special-img">
+                                <a href="classic_room.html">
+                                    <img src="{{$room->image_path}}" class="img-fluid blur-up lazyload bg-img"
+                                        alt="">
+                                </a>
+                                <!-- <div class="label">
+                                    <i class="fas fa-percent"></i>
+                                    <h3><del>$24</del> $20</h3>
+                                </div> -->
+                            </div>
+                            <div class="special-content" style="text-align: center;">
+                                <a href="{{route('room_detatils',$room->id)}}">
+                                    <h5>{{$room->title_en}}</h5>
+                                </a>
+                                 
+                                <a style="background: white;color: #9a8348;border-color: #9a8348;" href="{{route('room_detatils',$room->id)}}" class="btn btn-curve">find out more</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
