@@ -74,7 +74,7 @@
                                             <li><a href="#" class="menu-title">Fitness & Wellbeing</a>
                                                 <ul class="nav-sub-childmenu submenu-content level1">
                                                     <li><a href="gym.html">Gym</a></li>
-                                                    <li><a href="spa.html">Spa</a></li>
+                                                    <li><a href="{{route('hotel.viewPage',['page' => 'spa','hotel_slug' => $hotel->slug])}}">Spa</a></li>
                                                    
                                                     
                                                 </ul>
@@ -88,7 +88,7 @@
                                                     </li>
                                                 </ul>-->
                                             </li>
-                                            <li><a href="careers.html" class="menu-title">Careers</a></li>
+                                            <li><a href="{{route('hotel.viewPage',['page' => 'careers','hotel_slug' => $hotel->slug])}}" class="menu-title">Careers</a></li>
                                             <li><a href="contact-2.html" class="menu-title">Contact</a></li>
                                         </ul>
                                     </li>
