@@ -47,7 +47,8 @@ Route::group(['prefix' => 'admin','resource' => 'Admin','middleware' => 'auth'],
     
     Route::resource('rooms', 'Admin\RoomController')->except('show');
     Route::get('rooms/grid', 'Admin\RoomController@grid')->name("rooms.grid");
-    
+    Route::get('rooms/delete/{id}', 'Admin\RoomController@delete')->name("rooms.delete");
+
 
     Route::resource('restaurants', 'Admin\ResturantController')->except('show');
     Route::get('restaurants/grid', 'Admin\ResturantController@grid')->name("restaurants.grid");

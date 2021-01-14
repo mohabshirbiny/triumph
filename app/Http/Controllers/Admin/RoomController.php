@@ -48,7 +48,7 @@ class RoomController extends Controller
             })
             ->addColumn("actions", function ($room) {
                 $edit_link = route("rooms.edit", $room->id);
-                $delete_link = url("/admin/rooms/". $room->id.'/delete');
+                $delete_link = route("rooms.delete", $room->id);
                 $actions = "
                     <a href='$edit_link' class='badge bg-warning'>Edit</a>
                     <a href='$delete_link' onClick='return ConfirmDelete();' class='badge bg-danger'>Delete</a>
@@ -167,10 +167,10 @@ class RoomController extends Controller
         // dd($Room);
     }
     
-    public function destroy($id)
+    public function delete($id)
     {
         $room = Room::find($id);
-        // $room->delete();
+        $room->delete();
 
         return redirect(route("rooms.index"))->with("success_message", "Room has been deleted successfully.");
     }
