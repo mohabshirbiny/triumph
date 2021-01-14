@@ -123,4 +123,17 @@ class HomeController extends Controller
             abort('404');
         }
     }
+    public function viewPage($hotel_slug,$page)
+    {
+        $hotel = Hotel::Where('active' ,1)->where('slug',$hotel_slug)->first();
+        
+        if (!$hotel) {
+            return redirect()->route('landing');
+        }
+
+        $page = $hotel->pages()->where('key',$page)->first();
+        
+        return view('front.page',compact('hotel','page'));
+
+    }
 }

@@ -67,7 +67,7 @@
                                              <li><a href="#" class="menu-title">Meet & Celebrate</a>
                                                 <ul class="nav-sub-childmenu submenu-content level1">
                                                     <li><a href="meet.html">Meet</a></li>
-                                                    <li><a href="celebrate.html">Celebrate</a></li>
+                                                    <li><a href="{{route('hotel.viewPage',['page' => 'celebrate','hotel_slug' => $hotel->slug])}}">Celebrate</a></li>
                                                     
                                                 </ul>
                                             </li>

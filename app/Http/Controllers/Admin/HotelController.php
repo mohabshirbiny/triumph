@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Hotel;
+use App\Page;
 use App\Http\Controllers\Controller;
 use App\Traits\UploadFiles;
 use Illuminate\Http\Request;
@@ -37,6 +38,7 @@ class HotelController extends Controller
                 $delete_link = route("hotels.delete", $record->id);
                 $change_active = route("hotels.change-active", $record->id);
                 $gallery = route("hotels.gallery", $record->id);
+                $pages = route("hotels.pages", $record->id);
                 
                 if (!$record->active) {
                     $actions .= "<a href='$change_active' class='badge bg-success'>Activate</a>";
@@ -46,6 +48,7 @@ class HotelController extends Controller
                 }
                 
                 $actions .= "
+                    <a href='$pages' class='badge bg-primary'>Pages</a>
                     <a href='$gallery' class='badge bg-primary'>Gallery</a>
                     <a href='$edit_link' class='badge bg-warning'>Edit</a>
                     <a href='$delete_link' onClick='return ConfirmDelete();' class='badge bg-danger delete-btn'>Delete</a>
@@ -312,5 +315,59 @@ class HotelController extends Controller
             return redirect(route("hotels.gallery", $hotels))->with("success_message", "hotels gallery has been deleted successfully.");
         }
         return redirect(route("hotels.gallery", $hotels))->with("success_message", "hotels gallery has been deleted successfully.");
+    }
+
+    public function pages($hotel_id)
+    {
+        $hotel = Hotel::findOrfail($hotel_id);
+        if (count($hotel->pages() ) == 0) {
+            $pagesData = array(
+                array('hotel_id'=>$hotel->id, 'key'=>'spa'),
+                array('hotel_id'=>$hotel->id, 'key'=>'celebrate'),
+                array('hotel_id'=>$hotel->id, 'key'=>'careers'),
+            );
+            
+            $pages = Page::insert($pagesData);
+        }
+        return view("admin.hotels.pages.index", compact("hotel"));
+    }
+
+    public function showPage($hotel_id,$page)
+    {
+        $hotel = Hotel::findOrfail($hotel_id);
+        
+        $page = Page::findOrfail($page);
+
+        return view("admin.hotels.pages.update", compact("hotel",'page'));
+    }
+
+    public function updatePage(Request $request,$id)
+    {
+        $hotel = Hotel::findOrfail($id);
+       
+        
+
+        $this->validate($request, [
+            "title.en" => "required",
+            "title.ar" => "required",
+            "content.en" => "required",
+            "content.ar" => "required",
+            "page" => "required",
+        ]);
+
+        $page = Page::findOrfail($request->page);
+
+        $cover = $page->cover;
+        if ($request->cover) {
+            $cover = $this->uploadFile($request->cover, 'Hotel', 'cover', 'image', 'hotel_files');
+        }
+
+        $page->update([
+            "title"   => json_encode($request->title),
+            "content"   => json_encode($request->content),
+            "cover"              => $cover,
+        ]);
+
+        return view("admin.hotels.pages.index", compact("hotel"));
     }
 }

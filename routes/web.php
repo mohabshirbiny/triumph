@@ -26,6 +26,7 @@ Route::get('/room/{id}', 'HomeController@getRoomData')->name('room_detatils');
 Route::get('/hotel/{hotel_slug}/restaurants', 'HomeController@getAllRestaurants')->name('restaurants.all');
 Route::get('/hotel/{hotel_slug}/restaurants/{id}', 'HomeController@getRestaurantData')->name('restaurant.details');
 Route::get('/hotel/{hotel_slug}/restaurants/{id}/downloadFile', 'HomeController@downloadRestaurantFile')->name('restaurant.downloadFile');
+Route::get('/hotel/{hotel_slug}/page/{page}', 'HomeController@viewPage')->name('hotel.viewPage');
 
 Route::post('/locale', function(){
     
@@ -89,7 +90,11 @@ Route::group(['prefix' => 'admin','resource' => 'Admin','middleware' => 'auth'],
     Route::get('hotels/{id}/gallery', 'Admin\HotelController@gallery')->name("hotels.gallery");
     Route::get('hotels/{id}/create-gallery', 'Admin\HotelController@createGallery')->name("hotels.gallery.create");
     Route::post('hotels/{id}/gallery', 'Admin\HotelController@storeGallery')->name("hotels.gallery.store");
-    Route::get('hotels/{id}/gallery/{gallery}', 'Admin\HotelController@deleteGallery')->name("hotels.gallery.delete");
+    Route::get('hotels/{id}/gallery/{gallery}', 'Admin\HotelController@deleteGallery')->name("hotels.gallery.delete");    
+    
+    Route::get('hotels/{id}/pages', 'Admin\HotelController@pages')->name("hotels.pages");
+    Route::get('hotels/{id}/page/{page}', 'Admin\HotelController@showPage')->name("hotels.pages.show");
+    Route::post('hotels/{id}/page', 'Admin\HotelController@updatePage')->name("hotels.pages.store");
 
     Route::get('guest-reviews/grid', 'Admin\GuestReviewController@grid')->name("guest-reviews.grid");
     Route::resource('guest-reviews', 'Admin\GuestReviewController');

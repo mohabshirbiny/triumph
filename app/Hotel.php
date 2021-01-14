@@ -56,6 +56,11 @@ class Hotel extends Model
         return $this->hasMany(Resturant::class)->get();
     }
     
+    public function pages()
+    {
+        return $this->hasMany(Page::class)->get();
+    }
+    
     public function getTitleArAttribute()
     {
         return json_decode($this->title, true)['ar'];
