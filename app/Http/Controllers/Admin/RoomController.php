@@ -41,7 +41,7 @@ class RoomController extends Controller
 
                 $hotel = Hotel::find($room->hotel_id);
                 
-                return $hotel->title_en;
+                return ($hotel)?$hotel->title_en: '';
             })
             ->addColumn("image", function ($room) {
                 return "<img style='max-width: 100px;min-width: 100px;' src=".$room->image_path.">";
