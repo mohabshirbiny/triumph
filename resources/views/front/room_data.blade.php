@@ -35,48 +35,59 @@
                 <div class="col-xl-10 offset-xl-1">
                     <div class="search-panel" id="searchBar">
                         <div class="search-section shadow">
-                            <div class="search-box">
-                                <div class="left-part">
-                                    <div class="search-body title-hotel">
-                                        <h6>room</h6>
-                                        <input type="text" name="text" placeholder="classic" class="form-control ">
-                                    </div>
-                                    <div class="search-body">
-                                        <h6>check in</h6>
-                                        <input placeholder="18 april" id="datepicker" />
-                                    </div>
-                                    <div class="search-body">
-                                        <h6>check out</h6>
-                                        <input placeholder="20 april" id="datepicker1" />
-                                    </div>
-                                    <div class="search-body">
-                                        <h6>rooms</h6>
-                                        <div class="qty-box">
-                                            <div class="input-group">
-                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-left-minus"
-                                                        data-type="minus" data-field="">
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </button>
-                                                </span>
-                                                <input type="text" name="quantity" class="form-control input-number"
-                                                    value="1">
-                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn quantity-right-plus"
-                                                        data-type="plus" data-field="">
-                                                        <i class="fas fa-chevron-up"></i>
-                                                    </button>
-                                                </span>
+                            <form  name="resform" id="resform"  action="{{$hotel->booking_url}}" method="get" target="_blank">
+                                <input type="hidden" name="HotelID" value="112895" />
+                                <input type="hidden" name="LanguageID" value="1" />
+                                <input type="hidden" name="Rooms" value="1" />
+                                <div class="search-box">
+                                    <div class="left-part">
+                                        <div class="search-body title-hotel">
+                                            <h6>Triumph</h6>
+                                            <input type="text"  placeholder="{{$hotel->slug}}" class="form-control ">
+                                        </div>
+                                        <div class="search-body">
+                                            <h6>check in</h6>
+                                            <input type="text" value="{{date('m/d/y')}}" name="DateIn"  id="DateIn">
+
+                                            {{-- <a href="javascript:openCalendar('DateIn')"> ss</a> --}}
+                                        </div>
+                                        <div class="search-body">
+                                            <h6>check out</h6>
+                                            <input type="text" value="{{date('m/d/y',strtotime("+1 day"))}}" name="DateOut"  id="DateOut">
+
+                                            {{-- <a href="javascript:openCalendar('DateOut')"> ww</a> --}}
+                                        </div>
+                                        
+                                        <div class="search-body">
+                                            <h6>guests</h6>
+                                            <div class="qty-box">
+                                                <div class="input-group">
+                                                    <span class="input-group-prepend">
+                                                        <button type="button" class="btn quantity-left-minus"
+                                                            data-type="minus" data-field="">
+                                                            <i class="fas fa-chevron-down"></i>
+                                                        </button>
+                                                    </span>
+                                                    <input type="text" name="Adults"  class="form-control input-number"
+                                                        value="1">
+                                                    <span class="input-group-prepend">
+                                                        <button type="button" class="btn quantity-right-plus"
+                                                            data-type="plus" data-field="">
+                                                            <i class="fas fa-chevron-up"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="search-body btn-search">
+                                            <div class="right-part">
+                                                
+                                                <input type="submit" class="btn btn-solid color1" value="Book Now">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="search-body btn-search">
-                                        <div class="right-part">
-                                            <a href="#" class="btn btn-solid color1">Book Now</a>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -86,20 +97,7 @@
 
 
     <section class="about-section three-image about_page animated-section section-b-space">
-        <div class="animation-section">
-            <div class="cross po-1"></div>
-            <div class="cross po-2"></div>
-            <div class="cross po-3"></div>
-            <div class="round po-4"></div>
-            <div class="round po-5"></div>
-            <div class="round r-2 po-6"></div>
-            <div class="round r-2 po-7"></div>
-            <div class="round r-y po-8"></div>
-            <div class="round r-y po-9"></div>
-            <div class="square po-10"></div>
-            <div class="square po-11"></div>
-            <div class="square s-2 po-12"></div>
-        </div>
+         
         <div class="container">
             <!-- <div class="title-1">
                 <span class="title-label">Triumph</span>
@@ -127,20 +125,7 @@
 
 
     <section class="section-b-space animated-section">
-        <div class="animation-section">
-            <div class="cross po-1"></div>
-            <div class="cross po-2"></div>
-            <div class="cross po-3"></div>
-            <div class="round po-4"></div>
-            <div class="round po-5"></div>
-            <div class="round r-2 po-6"></div>
-            <div class="round r-2 po-7"></div>
-            <div class="round r-y po-8"></div>
-            <div class="round r-y po-9"></div>
-            <div class="square po-10"></div>
-            <div class="square po-11"></div>
-            <div class="square s-2 po-12"></div>
-        </div>
+         
         <div class="container">
             <div class="title-3">
                 <!-- <span class="title-label">Triumph</span> -->

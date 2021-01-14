@@ -50,7 +50,12 @@ class Room extends Model
 
     public function getFacilitiesAttribute($value)
     {
-        return Facility::whereIn('id',json_decode($value, true))->get();
+        if ($value != 'null') {
+            return Facility::whereIn('id',json_decode($value, true))->get();
+        }else{
+            return [];
+        }
+        
     }
 
     public function getImagePathAttribute()

@@ -1,10 +1,10 @@
 @extends("layouts.admin")
 @section("page_title", "rooms")
 @section('css')
-@endsection
-@section("content")
 <link rel="stylesheet" href="{{ asset('admin_assets/plugins/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('admin_assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+@endsection
+@section("content")
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -79,7 +79,7 @@
                                             <label for="exampleInputEmail1">Facilities</label>
                                             <select name="facilities[]" class="select2" data-placeholder="Select a developer" style="width: 100%;" multiple>
                                                 @foreach ($facilities as $facility)
-                                                    <option value="{{ $facility->id }}">{{ json_decode($facility->name, true)['en'] . " - " . json_decode($facility->name, true)['ar'] }}</option>
+                                                    <option @if ($facilities->contains('id', $facility->id)) selected @endif value="{{ $facility->id }}">{{ json_decode($facility->name, true)['en'] . " - " . json_decode($facility->name, true)['ar'] }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -122,11 +122,11 @@
 
 @section("js")
 <script src="{{ asset('admin_assets/plugins/select2/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('admin_assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('admin_assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('admin_assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
     <script type="text/javascript">
     $(document).ready(function () {
-        ('.select2').select2();
+        $('.select2').select2();
 
         $('#quickForm').validate({
             rules: {
