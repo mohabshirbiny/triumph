@@ -167,10 +167,10 @@ class ResturantController extends Controller
         // dd($Resturant);
     }
     
-    public function destroy($id)
+    public function delete ($id)
     {
         $resturant = Resturant::find($id);
-        // $resturant->delete();
+        $resturant->delete();
 
         return redirect(route("restaurants.index"))->with("success_message", "Resturant has been deleted successfully.");
     }

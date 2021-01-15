@@ -193,9 +193,18 @@
     // document.getElementById('collapseExample3').style.display='none';
     // document.getElementById('collapseExample2').style.display='none';
     
-    document.getElementsByClassName('amenities').style.display='none';
-    document.getElementsByClassName('description').style.display='none';
-     
+    
+    var x = document.getElementsByClassName("amenities");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    
+    var x = document.getElementsByClassName("description");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
         
         
         function collapseInfoBox1(){
