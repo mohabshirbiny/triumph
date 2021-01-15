@@ -27,6 +27,8 @@ Route::get('/hotel/{hotel_slug}/meet-rooms', 'HomeController@getMeetRooms')->nam
 Route::get('/hotel/{hotel_slug}/restaurants/{id}', 'HomeController@getRestaurantData')->name('restaurant.details');
 Route::get('/hotel/{hotel_slug}/restaurants/{id}/downloadFile', 'HomeController@downloadRestaurantFile')->name('restaurant.downloadFile');
 Route::get('/hotel/{hotel_slug}/page/{page}', 'HomeController@viewPage')->name('hotel.viewPage');
+Route::get('/hotel/{hotel_slug}/contact_us', 'HomeController@contact_us')->name('hotel.contact_us');
+Route::post('/hotel/{hotel_slug}/contact_us', 'HomeController@contact_us_post')->name('hotel.contact_us_post');
 
 Route::post('/locale', function(){
     

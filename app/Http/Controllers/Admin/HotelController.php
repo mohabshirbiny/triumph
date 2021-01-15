@@ -326,6 +326,7 @@ class HotelController extends Controller
             'celebrate',
             'careers',
             'gym',
+            'contact',
             'meet-rooms'
         ];
 

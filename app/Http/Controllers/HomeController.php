@@ -149,4 +149,16 @@ class HomeController extends Controller
         return view('front.page',compact('hotel','page'));
 
     }
+    
+    public function contact_us($hotel_slug)
+    {
+        $hotel = Hotel::Where('active' ,1)->where('slug',$hotel_slug)->first();
+        dd($hotel );
+        if (!$hotel) {
+            return redirect()->route('landing');
+        }
+
+        return view('front.contact_us',compact('hotel'));
+
+    }
 }
