@@ -132,8 +132,8 @@
                                 <!--footer-->
                                 <div style="display: flex; justify-content: space-between;">
                                     <div> 
-                                        <button class="btn btn-solid color1" type="button" onclick="collapseInfoBox1();" toggle="off">Amenities</button>
-                                        <button class="btn btn-solid color1" type="button" onclick="collapseTxtBox1();" toggle="off">Description</button>
+                                        <button class="btn btn-solid color1" type="button" onclick="collapseInfoBox({{$loop->index}});" toggle="off">Amenities</button>
+                                        <button class="btn btn-solid color1" type="button" onclick="collapseTxtBox({{$loop->index}});" toggle="off">Description</button>
                                     </div>
                                 <a href="mailto:{{ $meet_room->inquire_mail }}" class="btn btn-solid">Inquire</a>
                                 
@@ -156,7 +156,7 @@
 
                     </div>
 
-                    <div class="row amenities" id="collapseExample2" style="background-color:#f1f1f1; padding-top: 25px; padding-bottom: 25px; padding-left: 20px; padding-right: 20px;">
+                    <div class="row amenities" id="amenities{{$loop->index}}" style="background-color:#f1f1f1; padding-top: 25px; padding-bottom: 25px; padding-left: 20px; padding-right: 20px;">
                         <div class="col-md-4" >
                             <ul class="ul-default">
                                 @foreach ($meet_room->facilities as $facility)
@@ -169,7 +169,7 @@
                         
                     </div>
 
-                    <div class="row description" id="collapseExample3" style="background-color:#f1f1f1; padding-top: 25px; padding-bottom: 25px; padding-left: 20px; padding-right: 20px;">
+                    <div class="row description" id="description{{$loop->index}}" style="background-color:#f1f1f1; padding-top: 25px; padding-bottom: 25px; padding-left: 20px; padding-right: 20px;">
                         <div class="col-md-12" >
                             <p>{!! $meet_room->description_en !!}</p>
                         </div>
@@ -190,10 +190,6 @@
 
 <script>
     
-    // document.getElementById('collapseExample3').style.display='none';
-    // document.getElementById('collapseExample2').style.display='none';
-    
-    
     var x = document.getElementsByClassName("amenities");
     var i;
     for (i = 0; i < x.length; i++) {
@@ -207,9 +203,9 @@
     }
         
         
-        function collapseInfoBox1(){
-            document.getElementById('collapseExample3').style.display='none';
-            targetWin = document.getElementById('collapseExample2');
+        function collapseInfoBox($index){
+            document.getElementById('description'+$index).style.display='none';
+            targetWin = document.getElementById('amenities'+$index);
             if(targetWin.style.display =='none')
             {
                 targetWin.style.display='flex';
@@ -220,9 +216,9 @@
             
         }
         
-        function collapseTxtBox1(){
-            document.getElementById('collapseExample2').style.display='none';
-            targetWin = document.getElementById('collapseExample3');
+        function collapseTxtBox($index){
+            document.getElementById('amenities'+$index).style.display='none';
+            targetWin = document.getElementById('description'+$index);
             if(targetWin.style.display =='none')
             {
                 targetWin.style.display='flex';
@@ -232,8 +228,5 @@
             }
         }
     
-        
-        
-        
         </script>
 @endsection

@@ -152,7 +152,7 @@
     </section>
 
     <!-- section start -->
-    <section class="small-section bg-inner">
+    {{-- <section class="small-section bg-inner">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 ratio3_2">
@@ -225,6 +225,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- section End -->
 @endsection
