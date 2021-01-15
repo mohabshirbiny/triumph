@@ -133,7 +133,7 @@ class HomeController extends Controller
         // get file name from route
         $fileName = $restaurant->pdf_link;
         
-        $pathToFile = public_path('files\restaurant_files\\'. $fileName);
+        $pathToFile = public_path('files/restaurant_files/'. $fileName);
 
         if($fileName != null  ) {
             return response()->download($pathToFile);
