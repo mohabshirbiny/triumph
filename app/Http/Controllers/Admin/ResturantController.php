@@ -145,11 +145,10 @@ class ResturantController extends Controller
         $Resturant = Resturant::findOrFail($id);
 
         $image = $Resturant->image;
-
-
         if ($request->has('image') && $request->image != null) {
             $image = $this->uploadFile($request->image, 'Resturant', 'image', 'image', 'restaurant_files');
         }
+
         $Resturant->update(
             [
                 "title"         => json_encode($request->title),
@@ -163,7 +162,7 @@ class ResturantController extends Controller
         
 
         
-        return redirect(route("resturant.index"))->with("success_message", "resturant has been updated successfully.");
+        return redirect(route("restaurants.index"))->with("success_message", "resturant has been updated successfully.");
         // dd($Resturant);
     }
     
@@ -172,6 +171,6 @@ class ResturantController extends Controller
         $resturant = Resturant::find($id);
         // $resturant->delete();
 
-        return redirect(route("resturant.index"))->with("success_message", "Resturant has been deleted successfully.");
+        return redirect(route("restaurants.index"))->with("success_message", "Resturant has been deleted successfully.");
     }
 }
