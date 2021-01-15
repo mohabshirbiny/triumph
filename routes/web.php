@@ -59,7 +59,8 @@ Route::group(['prefix' => 'admin','resource' => 'Admin','middleware' => 'auth'],
 
     Route::resource('restaurants', 'Admin\ResturantController')->except('show');
     Route::get('restaurants/grid', 'Admin\ResturantController@grid')->name("restaurants.grid");
-    
+    Route::get('restaurants/delete/{id}', 'Admin\ResturantController@delete')->name("restaurants.delete");
+
     Route::get('news/{id}/gallery', 'Admin\NewsController@gallery')->name("news.gallery");
     Route::get('news/{id}/create-gallery', 'Admin\NewsController@createGallery')->name("news.gallery.create");
     Route::post('news/{id}/gallery', 'Admin\NewsController@storeGallery')->name("news.gallery.store");

@@ -111,10 +111,10 @@
                                     <!-- header-->
                                     <div  style="display: flex; justify-content: space-between;  align-items: center;">
                                         <h3 style="color: #9a8348;">{!! $meet_room->title_en !!}</h3>
-                                        <button class="btn btn-solid color1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">seating style</button>
+                                        <button class="btn btn-solid color1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{$loop->index}}" aria-expanded="false" aria-controls="collapseExample{{$loop->index}}">seating style</button>
                                     </div>
 
-                                    <div class="collapse" id="collapseExample" style="margin-top: 15px;">
+                                    <div class="collapse" id="collapseExample{{$loop->index}}" style="margin-top: 15px;">
                                         <div style="background-color: #fff; height: auto; width: 100%;">
                                             <img src="{{ $meet_room->seat_image_path }}" alt="" style="height: auto; width: 100%;">
                                         </div>
@@ -156,7 +156,7 @@
 
                     </div>
 
-                    <div class="row" id="collapseExample2" style="background-color:#f1f1f1; padding-top: 25px; padding-bottom: 25px; padding-left: 20px; padding-right: 20px;">
+                    <div class="row amenities" id="collapseExample2" style="background-color:#f1f1f1; padding-top: 25px; padding-bottom: 25px; padding-left: 20px; padding-right: 20px;">
                         <div class="col-md-4" >
                             <ul class="ul-default">
                                 @foreach ($meet_room->facilities as $facility)
@@ -169,7 +169,7 @@
                         
                     </div>
 
-                    <div class="row" id="collapseExample3" style="background-color:#f1f1f1; padding-top: 25px; padding-bottom: 25px; padding-left: 20px; padding-right: 20px;">
+                    <div class="row description" id="collapseExample3" style="background-color:#f1f1f1; padding-top: 25px; padding-bottom: 25px; padding-left: 20px; padding-right: 20px;">
                         <div class="col-md-12" >
                             <p>{!! $meet_room->description_en !!}</p>
                         </div>
@@ -190,8 +190,11 @@
 
 <script>
     
-    document.getElementById('collapseExample3').style.display='none';
-    document.getElementById('collapseExample2').style.display='none';
+    // document.getElementById('collapseExample3').style.display='none';
+    // document.getElementById('collapseExample2').style.display='none';
+    
+    document.getElementsByClassName('amenities').style.display='none';
+    document.getElementsByClassName('description').style.display='none';
      
         
         

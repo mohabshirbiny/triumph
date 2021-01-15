@@ -48,7 +48,8 @@ class ResturantController extends Controller
             })
             ->addColumn("actions", function ($resturant) {
                 $edit_link = route("restaurants.edit", $resturant->id);
-                $delete_link = url("/admin/restaurants/". $resturant->id.'/delete');
+                $delete_link = route("restaurants.delete", $resturant->id);
+
                 $actions = "
                     <a href='$edit_link' class='badge bg-warning'>Edit</a>
                     <a href='$delete_link' onClick='return ConfirmDelete();' class='badge bg-danger'>Delete</a>
