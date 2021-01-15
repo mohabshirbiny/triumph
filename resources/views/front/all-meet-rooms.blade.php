@@ -162,8 +162,6 @@
                                 @foreach ($meet_room->facilities as $facility)
                                     <li class="icon-checkmarkCircle">{{$facility->name_en}}</li>
                                 @endforeach
-                                
-                                
                             </ul>                    
                         </div>
                         

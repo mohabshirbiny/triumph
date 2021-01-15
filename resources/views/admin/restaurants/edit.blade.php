@@ -62,19 +62,46 @@
                                         </div>
                                     </div>
 
-
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">description (ar)</label>
-                                            <textarea name="desc[ar]" class="form-control" id="" cols="30" rows="2">{{$restaurant->about_en}}</textarea>
+                                            <textarea name="description[ar]" class="form-control" id="" cols="30" rows="2">{{$restaurant->description_ar}}</textarea>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">description (en)</label>
-                                            <textarea name="desc[en]" class="form-control" id="" cols="30" rows="2">{{$restaurant->about_en}}</textarea>
+                                            <textarea name="description[en]" class="form-control" id="" cols="30" rows="2">{{$restaurant->description_en}}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Opening Hours </label>
+                                            <input type="text" name="contact_details[open_hours]" value='{{$restaurant->contact_details['open_hours']}}' class="form-control" placeholder="Enter open hours" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Dress Code </label>
+                                            <input type="text" name="contact_details[dress_code]" value='{{$restaurant->contact_details['dress_code']}}' class="form-control" placeholder="Enter dress code" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">phone</label>
+                                            <input type="text" name="contact_details[phone]" value='{{$restaurant->contact_details['phone']}}' class="form-control" placeholder="Enter phone" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">fax</label>
+                                            <input type="text" name="contact_details[fax]" value='{{$restaurant->contact_details['fax']}}' class="form-control" placeholder="Enter fax" />
+                                        </div>
+                                    </div>
+
+        
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputEmail1">Type</label>
+                                            <input type="text" name="type" value='{{$restaurant->type}}' class="form-control" placeholder="Enter type .. Cafe,Italian,Bar ..." />
+                                        </div>
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">Facilities</label>
                                             <select name="facilities[]" class="select2" data-placeholder="Select a developer" style="width: 100%;" multiple>
@@ -87,13 +114,30 @@
                                     </div>
                                     
 
-                                    <img style='max-width: 100px;min-width: 100px;' src="{{$restaurant->image_path}}">
                                     <div class="row">
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-2">
+                                            <img style='max-width: 100px;min-width: 100px;' src="{{$restaurant->image_path}}">
+
+                                        </div>
+                                        <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Image</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" name='image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-2">
+                                            <img style='max-width: 100px;min-width: 100px;' src="{{$restaurant->cover_path}}">
+
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="exampleInputFile">Cover</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name='cover' class="custom-file-input" id="exampleInputFile" accept="image/*">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                                 </div>
                                             </div>
@@ -105,7 +149,7 @@
                                             <label for="exampleInputFile">PDF file</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" name='image' class="custom-file-input" id="exampleInputFile" accept="pdf/*">
+                                                    <input type="file" name='pdf_link' class="custom-file-input" id="exampleInputFile" accept="application/pdf">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                                 </div>
                                             </div>
@@ -116,43 +160,7 @@
 
                                 <hr>
                                 
-                                <h2>Box 1</h2>
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="exampleInputEmail1">Title  [ar]</label>
-                                        <input type="text" name="title[ar]" value='{{$restaurant->title_ar}}' class="form-control" placeholder="Enter title" />                                            
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="exampleInputEmail1">Title  [en]</label>
-                                        <input type="text" name="title[en]" value='{{$restaurant->title_en}}' class="form-control" placeholder="Enter title" />
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="exampleInputEmail1">description (ar)</label>
-                                        <textarea name="desc[ar]" class="form-control" id="" cols="30" rows="2">{{$restaurant->about_en}}</textarea>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="exampleInputEmail1">description (en)</label>
-                                        <textarea name="desc[en]" class="form-control" id="" cols="30" rows="2">{{$restaurant->about_en}}</textarea>
-                                    </div>
-                                </div>
-
-                                <img style='max-width: 100px;min-width: 100px;' src="{{$restaurant->image_path}}">
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="exampleInputFile">Image</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name='image' class="custom-file-input" id="exampleInputFile" accept="image/*">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                                                     
-                                </div>
+                                
                             </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">

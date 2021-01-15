@@ -8,7 +8,7 @@ use App\Room;
 use App\Service;
 use App\Slider;
 use App\AppSetting;
-use App\GuestReview;
+use Storage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -123,13 +123,19 @@ class HomeController extends Controller
 
     public function downloadRestaurantFile($hotel_slug,$id)
     {
+        $hotel = Hotel::Where('active' ,1)->where('slug',$hotel_slug)->first();
+        
+        if (!$hotel) {
+            return redirect()->route('landing');
+        }
+
         $restaurant = Resturant::findorfail($id);
         // get file name from route
-        $fileName = $request->segments()[2];
+        $fileName = $restaurant->pdf_link;
         
-        $pathToFile = Storage::path('initiatives_files/'. $fileName);
-        
-        if($fileName != null && Storage::exists('initiatives_files/' .$fileName) ) {
+        $pathToFile = public_path('files\restaurant_files\\'. $fileName);
+
+        if($fileName != null  ) {
             return response()->download($pathToFile);
 
         } else {
@@ -153,7 +159,7 @@ class HomeController extends Controller
     public function contact_us($hotel_slug)
     {
         $hotel = Hotel::Where('active' ,1)->where('slug',$hotel_slug)->first();
-        dd($hotel );
+        // dd($hotel );
         if (!$hotel) {
             return redirect()->route('landing');
         }

@@ -58,7 +58,7 @@
                                 <h2 style="color: #9a8348;">    {{(app()->getLocale() == 'en')? $restaurant->title_en : $restaurant->title_ar}}
                                 </h2> 
                                 <div>
-                                    <button class="btn btn-solid color1" type="button" onclick="collapseTxtBox1();" toggle="off">Book Now</button>
+                                    <a href="mailto:{{$hotel->contact_details['email']}}" target="_blank" class="btn btn-solid color1" type="button" toggle="off">Book Now</a>
                                     <a href="{{route('restaurant.downloadFile',['id' => $restaurant->id,'hotel_slug'=>$hotel->slug])}}" target="_blank" class="btn btn-solid color1" type="button" onclick="collapseTxtBox1();" toggle="off">Download PDF</a>
                                 </div>
                             </div>

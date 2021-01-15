@@ -83,21 +83,27 @@ class ResturantController extends Controller
             'type' => 'required',
             'image' => 'required|image|mimes:png,jpeg,png,jpg,gif|max:2048',
             'cover' => 'required|image|mimes:png,jpeg,png,jpg,gif|max:2048',
+            'pdf_link' => 'required|mimes:pdf|max:2048'
+
         ]);
         
         
         $image = $this->uploadFile($request->image, 'Resturant', 'image', 'image', 'restaurant_files');
+        sleep(1);
         $cover = $this->uploadFile($request->cover, 'Resturant', 'cover', 'image', 'restaurant_files');
+        sleep(1);
+        $pdf_link = $this->uploadFile($request->pdf_link, 'Resturant', 'pdf', 'file', 'restaurant_files');
 
         $Resturant = Resturant::create([
-            "title"         => json_encode($request->title),
-            "description"          => json_encode($request->description),
-            "facilities"    => json_encode($request->facilities),
-            "contact_details"    => json_encode($request->contact_details),
-            "hotel_id"      => $request->hotel_id,
-            "type"      => $request->type,
-            "image"         => $image,
-            "cover"         => $cover,
+            "title"             => json_encode($request->title),
+            "description"       => json_encode($request->description),
+            "facilities"        => json_encode($request->facilities),
+            "contact_details"   => json_encode($request->contact_details),
+            "hotel_id"          => $request->hotel_id,
+            "type"              => $request->type,
+            "image"             => $image,
+            "cover"             => $cover,
+            "pdf_link"             => $pdf_link,
         ]);
         
         // dd('ff');
@@ -138,8 +144,11 @@ class ResturantController extends Controller
         $this->validate($request, [
             'hotel_id' => 'required',
             'title' => 'required',
-            'desc' => 'required',
+            'description' => 'required',
             'image' => 'image|mimes:png,jpeg,png,jpg,gif|max:2048',
+            'cover' => 'image|mimes:png,jpeg,png,jpg,gif|max:2048',
+            'pdf_link' => 'mimes:pdf|max:2048'
+
         ]);
 
 
@@ -149,14 +158,28 @@ class ResturantController extends Controller
         if ($request->has('image') && $request->image != null) {
             $image = $this->uploadFile($request->image, 'Resturant', 'image', 'image', 'restaurant_files');
         }
+        
+        $cover = $Resturant->cover;
+        if ($request->has('cover') && $request->cover != null) {
+            $cover = $this->uploadFile($request->cover, 'Resturant', 'cover', 'image', 'restaurant_files');
+        }
+        
+        $pdf_link = $Resturant->pdf_link;
+        if ($request->has('pdf_link') && $request->pdf_link != null) {
+            $pdf_link = $this->uploadFile($request->pdf_link, 'Resturant', 'pdf', 'file', 'restaurant_files');
+        }
 
         $Resturant->update(
             [
-                "title"         => json_encode($request->title),
-                "desc"          => json_encode($request->desc),
-                "facilities"    => json_encode($request->facilities),
-                "hotel_id"      => $request->hotel_id,
-                "image"         => $image,
+                "title"             => json_encode($request->title),
+                "description"       => json_encode($request->description),
+                "facilities"        => json_encode($request->facilities),
+                "contact_details"   => json_encode($request->contact_details),
+                "hotel_id"          => $request->hotel_id,
+                "type"              => $request->type,
+                "image"             => $image,
+                "cover"             => $cover,
+                "pdf_link"           => $pdf_link,
             ]
         );
 

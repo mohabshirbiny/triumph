@@ -126,26 +126,20 @@
                                         </div>
                                                                          
                                     </div>
+
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label for="exampleInputFile">Image</label>
+                                            <label for="exampleInputFile">PDF file</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" name='image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <input type="file" name='pdf_link' class="custom-file-input" id="exampleInputFile" accept="application/pdf">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="exampleInputFile">Cover</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input type="file" name='cover' class="custom-file-input" id="exampleInputFile" accept="image/*">
-                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                         
                                     </div>
+                                    
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">

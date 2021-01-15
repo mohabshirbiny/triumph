@@ -89,7 +89,7 @@
                                                 </ul>-->
                                             </li>
                                             <li><a href="{{route('hotel.viewPage',['page' => 'careers','hotel_slug' => $hotel->slug])}}" class="menu-title">Careers</a></li>
-                                            <li><a href="{{route('hotel.contact_us',$hotel->slug)}}" class="menu-title">Contsssssact</a></li>
+                                            <li><a href="{{route('hotel.contact_us',$hotel->slug)}}" class="menu-title">Contact</a></li>
                                         </ul>
                                     </li>
                                     
