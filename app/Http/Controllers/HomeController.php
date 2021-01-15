@@ -86,6 +86,19 @@ class HomeController extends Controller
         return view('front.room_data',compact('room','hotel'));
         
     }
+    
+    public function getMeetRooms($hotel_slug)
+    {
+        $hotel = Hotel::Where('active' ,1)->where('slug',$hotel_slug)->first();
+        if ($hotel) {
+            $pageData = $hotel->pages()->where('key','meet-rooms')->first();
+            return view('front.all-meet-rooms',compact('hotel','pageData'));
+
+        }
+
+        return redirect()->route('landing');
+        
+    }
 
     public function getAllRestaurants($hotel_slug)
     {

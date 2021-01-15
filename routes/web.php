@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Session;
 Route::get('/', 'HomeController@landingPage')->name('landing');
 Route::get('/hotel/{hotel_slug}', 'HomeController@getHotelData')->name('index');
 Route::get('/room/{id}', 'HomeController@getRoomData')->name('room_detatils');
-Route::get('/room/{id}', 'HomeController@getRoomData')->name('room_detatils');
 Route::get('/hotel/{hotel_slug}/restaurants', 'HomeController@getAllRestaurants')->name('restaurants.all');
+Route::get('/hotel/{hotel_slug}/meet-rooms', 'HomeController@getMeetRooms')->name('meet_rooms');
 Route::get('/hotel/{hotel_slug}/restaurants/{id}', 'HomeController@getRestaurantData')->name('restaurant.details');
 Route::get('/hotel/{hotel_slug}/restaurants/{id}/downloadFile', 'HomeController@downloadRestaurantFile')->name('restaurant.downloadFile');
 Route::get('/hotel/{hotel_slug}/page/{page}', 'HomeController@viewPage')->name('hotel.viewPage');
@@ -49,6 +49,10 @@ Route::group(['prefix' => 'admin','resource' => 'Admin','middleware' => 'auth'],
     Route::resource('rooms', 'Admin\RoomController')->except('show');
     Route::get('rooms/grid', 'Admin\RoomController@grid')->name("rooms.grid");
     Route::get('rooms/delete/{id}', 'Admin\RoomController@delete')->name("rooms.delete");
+    
+    Route::resource('meet-rooms', 'Admin\MeetRoomController')->except('show');
+    Route::get('meet-rooms/grid', 'Admin\MeetRoomController@grid')->name("meet-rooms.grid");
+    Route::get('meet-rooms/delete/{id}', 'Admin\MeetRoomController@delete')->name("meet-rooms.delete");
 
 
     Route::resource('restaurants', 'Admin\ResturantController')->except('show');

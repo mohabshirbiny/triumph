@@ -157,6 +157,26 @@
                                     </li>
                                 </ul>
                             </li>
+                            
+                            <li class="nav-item has-treeview @if(request()->segment(2) && str_contains(request()->segment(2) , 'meet-rooms')) menu-open @endif">
+                                <a href="#" class="nav-link @if(request()->segment(2) && str_contains(request()->segment(2) , 'meet-rooms')) active @endif">
+                                  <i class="nav-icon fas fa-city"></i>
+                                  <p>
+                                    Meet Rooms
+                                    <i class="right fas fa-angle-left"></i>
+                                  </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+
+        
+                                    <li class="nav-item">
+                                        <a href="{{ route('meet-rooms.index') }}" class="nav-link @if(request()->segment(2) == 'meet-rooms') active @endif">
+                                            <i class="nav-icon far fa-circle"></i>
+                                            <p>all rooms</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
                             <li class="nav-item has-treeview @if(request()->segment(2) && str_contains(request()->segment(2) , 'restaurants')) menu-open @endif">
                                 <a href="#" class="nav-link @if(request()->segment(2) && str_contains(request()->segment(2) , 'restaurants')) active @endif">

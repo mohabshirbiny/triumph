@@ -66,14 +66,14 @@
                                             </li>
                                              <li><a href="#" class="menu-title">Meet & Celebrate</a>
                                                 <ul class="nav-sub-childmenu submenu-content level1">
-                                                    <li><a href="meet.html">Meet</a></li>
+                                                    <li><a href="{{route('meet_rooms',$hotel->slug)}}">Meet</a></li>
                                                     <li><a href="{{route('hotel.viewPage',['page' => 'celebrate','hotel_slug' => $hotel->slug])}}">Celebrate</a></li>
                                                     
                                                 </ul>
                                             </li>
                                             <li><a href="#" class="menu-title">Fitness & Wellbeing</a>
                                                 <ul class="nav-sub-childmenu submenu-content level1">
-                                                    <li><a href="gym.html">Gym</a></li>
+                                                    <li><a href="{{route('hotel.viewPage',['page' => 'gym','hotel_slug' => $hotel->slug])}}">Gym</a></li>
                                                     <li><a href="{{route('hotel.viewPage',['page' => 'spa','hotel_slug' => $hotel->slug])}}">Spa</a></li>
                                                    
                                                     

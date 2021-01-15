@@ -31,6 +31,7 @@
                                         <select name="appearance_place" class="form-control">
                                             <option value="index_page">Index Page</option>
                                             <option value="gallery_page">Gallery Page</option>
+                                            <option value="gym_page">Gym Page</option>
                                             
                                         </select>
                                     </div>

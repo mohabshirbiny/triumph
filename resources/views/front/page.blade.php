@@ -36,6 +36,34 @@
                     </div>
                 </div>
             </div>
+            <div class="filter-button-group"  >
+                <ul>
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".popular">popular</li>
+                    <li data-filter=".latest">latest</li>
+                    <li data-filter=".trend">trend</li>
+                </ul>
+            </div>
+
+            @if ($page->key == 'gym')
+                <div class="row content grid zoom-gallery">
+                    
+                    @foreach (json_decode( $hotel->gallery ,true)['gym_page'] as $image )
+                        
+                        <div class="popular grid-item wow fadeInUp col-sm-6">
+                            <div class="overlay">
+                                <div class="portfolio-image">
+                                    <a href="{{url('images/hotel_files/'.$image)}}">
+                                        <img src="{{url('images/hotel_files/'.$image)}}" alt=""
+                                            class="img-fluid blur-up lazyload bg-img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+            
         </div>
     </section>
 @endsection

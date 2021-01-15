@@ -267,7 +267,7 @@ class HotelController extends Controller
     {
         $hotel = Hotel::findOrfail($hotel_id);
         
-        if (in_array($request->appearance_place, ['index_page', 'gallery_page'])) {
+        if (in_array($request->appearance_place, ['index_page', 'gallery_page','gym_page'])) {
             $uploaded_gallery = $this->uploadFile($request->gallery, 'Hotel', 'gallery', 'image', 'hotel_files');
         }
 
@@ -320,15 +320,22 @@ class HotelController extends Controller
     public function pages($hotel_id)
     {
         $hotel = Hotel::findOrfail($hotel_id);
-        if (count($hotel->pages() ) == 0) {
-            $pagesData = array(
-                array('hotel_id'=>$hotel->id, 'key'=>'spa'),
-                array('hotel_id'=>$hotel->id, 'key'=>'celebrate'),
-                array('hotel_id'=>$hotel->id, 'key'=>'careers'),
-            );
-            
-            $pages = Page::insert($pagesData);
+
+        $pagesArray = [
+            'spa',
+            'celebrate',
+            'careers',
+            'gym',
+            'meet-rooms'
+        ];
+
+        foreach ($pagesArray as $page) {
+
+            if(!$hotel->pages()->contains('key', $page)) {
+                $pageq = Page::create(['hotel_id'=>$hotel->id, 'key'=>$page]);
+            }
         }
+
         return view("admin.hotels.pages.index", compact("hotel"));
     }
 
