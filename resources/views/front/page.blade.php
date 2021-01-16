@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="filter-button-group" style="display: none;">
+            <div class="filter-button-group" Ho>
                 <ul>
                     <li class="active" data-filter="*">All</li>
                     <li data-filter=".popular">popular</li>

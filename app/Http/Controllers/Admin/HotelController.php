@@ -327,6 +327,8 @@ class HotelController extends Controller
             'careers',
             'gym',
             'contact',
+            'about',
+            'gallery',
             'meet-rooms'
         ];
 
@@ -353,16 +355,7 @@ class HotelController extends Controller
     {
         $hotel = Hotel::findOrfail($id);
        
-        
-
-        $this->validate($request, [
-            "title.en" => "required",
-            "title.ar" => "required",
-            "content.en" => "required",
-            "content.ar" => "required",
-            "page" => "required",
-        ]);
-
+ 
         $page = Page::findOrfail($request->page);
 
         $cover = $page->cover;

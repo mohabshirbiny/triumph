@@ -167,4 +167,28 @@ class HomeController extends Controller
         return view('front.contact_us',compact('hotel'));
 
     }
+    
+    public function about($hotel_slug)
+    {
+        $hotel = Hotel::Where('active' ,1)->where('slug',$hotel_slug)->first();
+        // dd($hotel );
+        if (!$hotel) {
+            return redirect()->route('landing');
+        }
+
+        return view('front.about',compact('hotel'));
+
+    }
+    
+    public function gallery($hotel_slug)
+    {
+        $hotel = Hotel::Where('active' ,1)->where('slug',$hotel_slug)->first();
+        // dd($hotel );
+        if (!$hotel) {
+            return redirect()->route('landing');
+        }
+
+        return view('front.gallery',compact('hotel'));
+
+    }
 }

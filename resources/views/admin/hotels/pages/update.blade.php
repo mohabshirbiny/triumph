@@ -69,7 +69,7 @@
                                             <label for="exampleInputFile">Cover</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" name='cover' required class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                                    <input type="file" name='cover' class="custom-file-input" id="exampleInputFile" accept="image/*">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                                 </div>
                                             </div>

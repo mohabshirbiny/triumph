@@ -106,7 +106,7 @@
                                             <label for="exampleInputEmail1">Facilities</label>
                                             <select name="facilities[]" class="select2" data-placeholder="Select a developer" style="width: 100%;" multiple>
                                                 @foreach ($facilities as $facility)
-                                                    <option @if ($facilities->contains('id', $facility->id)) selected @endif value="{{ $facility->id }}">{{ json_decode($facility->name, true)['en'] . " - " . json_decode($facility->name, true)['ar'] }}</option>
+                                                    <option @if ($restaurant->facilities->contains('id', $facility->id)) selected @endif value="{{ $facility->id }}">{{ json_decode($facility->name, true)['en'] . " - " . json_decode($facility->name, true)['ar'] }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

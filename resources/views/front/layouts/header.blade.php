@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="menu">
                     <div class="brand-logo">
-                        <a href="index.html">
+                        <a href="{{route('index',$hotel->slug)}}">
                             <img src="{{$hotel->logo_path}}" alt="" style="max-width: 250px;"
                                 class="img-fluid blur-up lazyload">
                         </a>
@@ -22,19 +22,19 @@
                                         </div>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="index.html" class="nav-link menu-title">Home</a>
+                                        <a href="{{route('index',$hotel->slug)}}" class="nav-link menu-title">Home</a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="index.html" class="nav-link menu-title">hotel</a>
+                                        <a href="{{route('index',$hotel->slug)}}" class="nav-link menu-title">hotel</a>
                                         <ul class="nav-submenu menu-content">
-                                            <li><a href="about-us-2.html" class="menu-title">About</a></li>
+                                            <li><a href="{{route('hotel.about',$hotel->slug)}}" class="menu-title">About</a></li>
                                             
                                             <!-- <li><a href="about.html" class="menu-title">About 2</a></li> -->
                                             
 
                                             <li><a href="#" class="menu-title">Media</a> 
                                                 <ul class="nav-sub-childmenu submenu-content level1">
-                                                    <li><a href="gallery.html" class="menu-title">Gallery</a>
+                                                    <li><a href="{{route('hotel.gallery',$hotel->slug)}}" class="menu-title">Gallery</a>
                                                        
                                                     </li>
                                                     <!-- <li><a href="#" class="menu-title">Videos</a> -->
@@ -79,7 +79,7 @@
                                                     
                                                 </ul>
                                             </li>
-                                            <li><a href="shopping.html" class="menu-title">Shopping</a>
+                                            {{-- <li><a href="shopping.html" class="menu-title">Shopping</a> --}}
                                                <!-- <ul class="nav-sub-childmenu submenu-content level1">
                                                     <li><a href="hotel-booking.html">booking page</a></li>
                                                     <li><a href="hotel-checkout.html">checkout</a></li>

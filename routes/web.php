@@ -30,6 +30,10 @@ Route::get('/hotel/{hotel_slug}/page/{page}', 'HomeController@viewPage')->name('
 Route::get('/hotel/{hotel_slug}/contact_us', 'HomeController@contact_us')->name('hotel.contact_us');
 Route::post('/hotel/{hotel_slug}/contact_us', 'HomeController@contact_us_post')->name('hotel.contact_us_post');
 
+Route::get('/hotel/{hotel_slug}/gallery', 'HomeController@gallery')->name('hotel.gallery');                      
+Route::get('/hotel/{hotel_slug}/about', 'HomeController@about')->name('hotel.about');
+
+
 Route::post('/locale', function(){
     
     Session::put('locale', request()->locale);
