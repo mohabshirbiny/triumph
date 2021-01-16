@@ -51,7 +51,7 @@
                     </div>
                     <div class="row content grid zoom-gallery">
                         @if (json_decode( $hotel->gallery ,true))
-                        @if (in_array('gym_page',  json_decode( $hotel->gallery ,true)['gym_page']))
+                        @if (array_key_exists('gym_page',  json_decode( $hotel->gallery ,true)))
                             
                                     @foreach (json_decode( $hotel->gallery ,true)['gym_page'] as $image )
                                         <div class="popular grid-item wow fadeInUp col-sm-6">
