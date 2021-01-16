@@ -7,8 +7,14 @@
 
 
     <!-- breadcrumb start -->
-    <section class="breadcrumb-section no-bg pt-0" id="block" style="width: 100%; "
-        data-vide-bg="assets/plaza_1.mp4" data-vide-options="position: left, loop: true">
+    @if ($hotel->slug == 'plaza')
+        <section class="breadcrumb-section no-bg pt-0" id="block" style="width: 100%; "
+            data-vide-bg="{{url('images/videos/about_plaza.mp4')}}" data-vide-options="position: left, loop: true">
+    @else
+        <section class="breadcrumb-section no-bg pt-0" id="block" style="width: 100%; "
+            data-vide-bg="{{url('images/videos/about_luxury.mp4')}}" data-vide-options="position: left, loop: true">
+    @endif
+    
         <!-- <div class="breadcrumb-content overlay-black">
             <div>
                 <h2>about us</h2>

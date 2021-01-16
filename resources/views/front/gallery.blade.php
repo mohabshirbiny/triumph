@@ -9,7 +9,7 @@
     <section class="breadcrumb-section pt-0">
         <img src="{{$hotel->pages()->where('key','gallery')->first()->cover_path}}" class="bg-img img-fluid blur-up lazyload" alt="">
         <div class="breadcrumb-content">
-            <div>
+            {{-- <div>
                 <h2>Gallery</h2>
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
@@ -17,7 +17,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Gallery</li>
                     </ol>
                 </nav>
-            </div>
+            </div> --}}
         </div>
         <div class="title-breadcrumb">Triumph</div>
     </section>

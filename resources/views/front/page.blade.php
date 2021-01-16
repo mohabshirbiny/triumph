@@ -8,9 +8,9 @@
 @section('content')
     <section class="breadcrumb-section pt-0">
         <img src="{{$page->cover_path}}" class="bg-img img-fluid blur-up lazyload" alt="">
-        <div class="breadcrumb-content">
+        {{-- <div class="breadcrumb-content">
              
-        </div>
+        </div> --}}
         <div class="title-breadcrumb">Triumph</div>
     </section>
     <section class="about-section three-image about_page animated-section section-b-space">

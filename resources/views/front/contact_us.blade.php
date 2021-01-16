@@ -7,7 +7,7 @@
 <!-- breadcrumb start -->
 <section class="breadcrumb-section pt-0">
     <img src="{{$hotel->pages()->where('key','contact')->first()->cover_path}}" class="bg-img img-fluid blur-up lazyload" alt="">
-    <div class="breadcrumb-content">
+    {{-- <div class="breadcrumb-content">
         <div>
             <h2>{!!$hotel->pages()->where('key','contact')->first()->title_en!!}</h2>
             <nav aria-label="breadcrumb" class="theme-breadcrumb">
@@ -17,7 +17,7 @@
                 </ol>
             </nav>
         </div>
-    </div>
+    </div> --}}
     <div class="title-breadcrumb">Rica</div>
 </section>
 <!-- breadcrumb end -->
