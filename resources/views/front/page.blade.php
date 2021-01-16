@@ -36,32 +36,41 @@
                     </div>
                 </div>
             </div>
-            <div class="filter-button-group" Ho>
-                <ul>
-                    <li class="active" data-filter="*">All</li>
-                    <li data-filter=".popular">popular</li>
-                    <li data-filter=".latest">latest</li>
-                    <li data-filter=".trend">trend</li>
-                </ul>
-            </div>
+           
 
             @if ($page->key == 'gym')
-                <div class="row content grid zoom-gallery">
-                    
-                    @foreach (json_decode( $hotel->gallery ,true)['gym_page'] as $image )
-                        
-                        <div class="popular grid-item wow fadeInUp col-sm-6">
-                            <div class="overlay">
-                                <div class="portfolio-image">
-                                    <a href="{{url('images/hotel_files/'.$image)}}">
-                                        <img src="{{url('images/hotel_files/'.$image)}}" alt=""
-                                            class="img-fluid blur-up lazyload bg-img">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+            <section class="portfolio-section bg-white small-section ratio2_3">
+                <div class="container">
+                    <div class="filter-button-group" style="display: none;        ">
+                        <ul>
+                            <li class="active" data-filter="*">All</li>
+                            <li data-filter=".popular">popular</li>
+                            <li data-filter=".latest">latest</li>
+                            <li data-filter=".trend">trend</li>
+                        </ul>
+                    </div>
+                    <div class="row content grid zoom-gallery">
+                        @if (json_decode( $hotel->gallery ,true))
+                        @if (json_decode( $hotel->gallery ,true)['gym_page'])
+                            
+                                    @foreach (json_decode( $hotel->gallery ,true)['gym_page'] as $image )
+                                        <div class="popular grid-item wow fadeInUp col-sm-6">
+                                            <a href="{{url('images/hotel_files/'.$image)}}">
+                                                <div class="instagram-box">
+                                                    <img src="{{url('images/hotel_files/'.$image)}}" alt=""
+                                                        class="img-fluid blur-up lazyload bg-img">
+                                                    <div class="overlay">
+                                                        <i class="fab fa-instagram"></i>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div> 
+                                    @endforeach
+                                @endif
+                                @endif
+                    </div>
                 </div>
+            </section>
             @endif
             
         </div>
