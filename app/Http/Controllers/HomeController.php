@@ -8,6 +8,7 @@ use App\Room;
 use App\Service;
 use App\Slider;
 use App\AppSetting;
+use App\GuestReview;
 use Storage;
 use Illuminate\Http\Request;
 
